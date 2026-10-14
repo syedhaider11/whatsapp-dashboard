@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+
+<html class="h-full bg-background" lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport"/><meta content="mobile_tab" name="shell-type"/><title>WABA Ops Portal</title><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { colors: { "secondary-container": "#8cf1e1", "on-error": "#ffffff", "on-tertiary-container": "#f7fff3", "surface-dim": "#d2d9f4", "background": "#faf8ff", "surface-container": "#eaedff", "on-secondary-fixed-variant": "#005047", "on-background": "#131b2e", "on-secondary": "#ffffff", "surface-container-lowest": "#ffffff", "inverse-primary": "#68dba9", "on-surface": "#131b2e", "tertiary-fixed-dim": "#3de273", "on-tertiary-fixed": "#002109", "surface": "#faf8ff", "primary": "#006948", "inverse-on-surface": "#eef0ff", "outline-variant": "#bccac0", "on-surface-variant": "#3d4a42", "secondary-fixed": "#8ff4e3", "secondary-fixed-dim": "#72d8c8", "on-primary-fixed": "#002114", "error": "#ba1a1a", "on-primary-container": "#f5fff7", "error-container": "#ffdad6", "on-tertiary": "#ffffff", "primary-container": "#00855d", "surface-tint": "#006c4a", "tertiary-container": "#00873c", "outline": "#6d7a72", "on-secondary-container": "#006f64", "on-tertiary-fixed-variant": "#005322", "on-error-container": "#93000a", "tertiary": "#006b2e", "surface-container-highest": "#dae2fd", "inverse-surface": "#283044", "surface-variant": "#dae2fd", "secondary": "#006b5f", "primary-fixed-dim": "#68dba9", "on-secondary-fixed": "#00201c", "surface-bright": "#faf8ff", "on-primary-fixed-variant": "#005137", "tertiary-fixed": "#66ff8e", "primary-fixed": "#85f8c4", "surface-container-high": "#e2e7ff", "on-primary": "#ffffff", "surface-container-low": "#f2f3ff" }, borderRadius: { "DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem" }, spacing: { "margin": "1rem", "margin-tablet": "1.5rem", "margin-desktop": "2rem", "space-xxs": "0.125rem", "space-xs": "0.25rem", "space-sm": "0.5rem", "space-md": "0.75rem", "space-lg": "1rem", "space-xl": "1.5rem", "space-2xl": "2rem", "gutter-desktop": "1.5rem", "gutter": "1rem" }, fontFamily: { "display-sm": ["Inter"], "body-sm": ["Inter"], "body-md": ["Inter"], "headline-lg": ["Inter"], "headline-sm": ["Inter"], "mono-data": ["Inter"], "headline-md": ["Inter"], "body-lg": ["Inter"], "display-lg": ["Inter"], "label-md": ["Inter"], "label-sm": ["Inter"] }, fontSize: { "display-sm": ["24px", { lineHeight: "32px", letterSpacing: "-0.015em", fontWeight: "600" }], "body-sm": ["12px", { lineHeight: "16px", letterSpacing: "0.01em", fontWeight: "400" }], "body-md": ["14px", { lineHeight: "20px", letterSpacing: "0em", fontWeight: "400" }], "headline-lg": ["20px", { lineHeight: "28px", letterSpacing: "-0.01em", fontWeight: "600" }], "headline-sm": ["14px", { lineHeight: "20px", letterSpacing: "0em", fontWeight: "600" }], "mono-data": ["12px", { lineHeight: "16px", letterSpacing: "0em", fontWeight: "500" }], "headline-md": ["16px", { lineHeight: "24px", letterSpacing: "-0.005em", fontWeight: "600" }], "body-lg": ["16px", { lineHeight: "24px", letterSpacing: "0em", fontWeight: "400" }], "display-lg": ["32px", { lineHeight: "40px", letterSpacing: "-0.02em", fontWeight: "700" }], "label-md": ["12px", { lineHeight: "16px", letterSpacing: "0.01em", fontWeight: "500" }], "label-sm": ["11px", { lineHeight: "14px", letterSpacing: "0.03em", fontWeight: "600" }] } } } };</script><style>@layer base { html, body { width: 100vw; margin: 0; padding: 0; } body { overscroll-behavior: none; } .pb-safe { padding-bottom: env(safe-area-inset-bottom, 0px); } .pt-safe { padding-top: env(safe-area-inset-top, 0px); } main > :first-child { margin-top: 0 !important; } main > :last-child { margin-bottom: 0 !important; } } ::-webkit-scrollbar { display: none; }</style></head><body class="bg-surface text-on-surface antialiased flex flex-col min-h-screen selection:bg-secondary-container selection:text-on-secondary-container"><header class="fixed top-0 w-full z-50 bg-surface/85 backdrop-blur-xl pt-safe shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="h-20 px-space-md flex flex-col justify-center gap-space-xs"><div class="flex items-center justify-between gap-space-sm"><div class="flex items-center gap-space-sm min-w-0"><button aria-label="Open Operations Navigation" class="w-11 h-11 flex items-center justify-center rounded-xl bg-surface-container-low text-on-surface hover:bg-surface-container transition-colors shrink-0" onclick="document.getElementById('mobile-drawer').classList.remove('-translate-x-full');document.getElementById('drawer-backdrop').classList.remove('opacity-0','pointer-events-none');" type="button"><span class="material-symbols-outlined text-[22px]">menu_open</span></button><div class="flex items-center gap-space-xs shrink-0"><img alt="WABA Ops Logo" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1X9qDejTKwj1rDNdcr4HCJVXXR6pgdyYRhxhSMlEsn67ILOrbwOqvdSUPIly5rzk774k3Pq4Rbe9vbts1OeG0LXklpmGd2SpbuQ3BSKSlSf624UvPp21z_p291om6Qp2DbQEKra8Jiqlc0bsrpIfLhF9WKwPAr-iOC31dpzfdh7HJTd_lLKyoIBm0Hd-369wvXdxUty2hbWdjphwMWtRMeuh29Da8zQ87y3ecL69Yko79YGpuRyPQhYwffP"/><div class="flex flex-col"><span class="font-headline-sm text-headline-sm text-on-surface tracking-tight leading-tight">WABA Ops Portal</span><span class="font-label-sm text-label-sm text-on-surface-variant font-mono-data">v20.0 Core</span></div></div></div><div class="flex items-center gap-space-xs shrink-0"><button aria-label="System Notifications" class="relative w-11 h-11 flex items-center justify-center rounded-xl bg-surface-container-low text-on-surface hover:bg-surface-container transition-colors" type="button"><span class="material-symbols-outlined text-[22px]">notifications</span><span class="absolute top-2 right-2 flex items-center justify-center min-w-[16px] h-4 px-1 rounded-full bg-error text-on-error font-label-sm text-[10px] font-bold">3</span></button><div class="flex items-center gap-space-xs pl-space-xs"><img alt="Profile" class="w-8 h-8 rounded-full object-cover shrink-0 ring-2 ring-primary/20" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAmeG0HTwOlIf3xjgEH2_pmMJCktYT5Hg2eI9eW0agbKZNmTqBgbEMn_ao5_jY_UCc50AWoG0aW5hkSZTEYEPwuvD9IZUQDLAb0jpjWjiQoO2WMe2ai9s8dnS4-wMo77YF8D--rEdBh8EGuTvko9bm8LjrC8VdjMjSBTInF8IrDGbz_WOLDE4O0U3_NrjWmSlCgCw5IrWyMb4SoyEKuae-b8Mt2uXEWzaLJEHMM-B9vH65oBE7lPz9xlQ"/><div class="hidden xs:flex flex-col"><span class="font-label-sm text-label-sm font-semibold text-on-surface leading-tight truncate max-w-[90px]">Elena R.</span><span class="font-label-sm text-[10px] text-primary font-bold uppercase tracking-wider">Super Admin</span></div></div></div></div><div class="flex items-center justify-between gap-space-sm"><div class="flex items-center gap-space-xs px-space-sm py-space-xxs rounded-full bg-surface-container text-primary font-label-sm text-label-sm font-medium"><span class="relative flex h-2 w-2"><span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-tertiary-fixed-dim opacity-75"></span><span class="relative inline-flex rounded-full h-2 w-2 bg-primary"></span></span><span class="font-mono-data text-[11px] text-on-surface-variant">+1 (555) 019-2834</span><span class="font-label-sm text-[10px] text-primary font-bold uppercase tracking-wide">Meta Live</span></div><div class="flex items-center gap-space-xs min-w-0"><span class="font-label-sm text-label-sm text-outline uppercase tracking-wider">Scope:</span><span class="font-headline-sm text-headline-sm text-on-surface truncate">Dashboard</span></div></div></div></header><div class="fixed inset-0 z-50 bg-inverse-surface/40 backdrop-blur-sm opacity-0 pointer-events-none transition-opacity duration-300" id="drawer-backdrop" onclick="document.getElementById('mobile-drawer').classList.add('-translate-x-full');this.classList.add('opacity-0','pointer-events-none');"></div><aside class="fixed top-0 bottom-0 left-0 w-80 max-w-[85vw] z-50 bg-surface-container-lowest flex flex-col -translate-x-full transition-transform duration-300 ease-out shadow-2xl pt-safe pb-safe" id="mobile-drawer"><div class="p-space-lg flex items-center justify-between bg-surface-container-low"><div class="flex items-center gap-space-sm"><img alt="WABA Ops Logo" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1X9qDejTKwj1rDNdcr4HCJVXXR6pgdyYRhxhSMlEsn67ILOrbwOqvdSUPIly5rzk774k3Pq4Rbe9vbts1OeG0LXklpmGd2SpbuQ3BSKSlSf624UvPp21z_p291om6Qp2DbQEKra8Jiqlc0bsrpIfLhF9WKwPAr-iOC31dpzfdh7HJTd_lLKyoIBm0Hd-369wvXdxUty2hbWdjphwMWtRMeuh29Da8zQ87y3ecL69Yko79YGpuRyPQhYwffP"/><div class="flex flex-col"><span class="font-headline-sm text-headline-sm text-on-surface font-bold">WABA Console</span><span class="font-label-sm text-label-sm text-on-surface-variant">Meta Cloud Platform</span></div></div><button aria-label="Close Drawer" class="w-11 h-11 flex items-center justify-center rounded-xl text-on-surface-variant hover:bg-surface-container" onclick="document.getElementById('mobile-drawer').classList.add('-translate-x-full');document.getElementById('drawer-backdrop').classList.add('opacity-0','pointer-events-none');" type="button"><span class="material-symbols-outlined text-[22px]">close</span></button></div><div class="p-space-md mx-space-md my-space-sm rounded-xl bg-surface-container flex items-center gap-space-sm"><img alt="Profile" class="w-10 h-10 rounded-full object-cover shrink-0" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAmeG0HTwOlIf3xjgEH2_pmMJCktYT5Hg2eI9eW0agbKZNmTqBgbEMn_ao5_jY_UCc50AWoG0aW5hkSZTEYEPwuvD9IZUQDLAb0jpjWjiQoO2WMe2ai9s8dnS4-wMo77YF8D--rEdBh8EGuTvko9bm8LjrC8VdjMjSBTInF8IrDGbz_WOLDE4O0U3_NrjWmSlCgCw5IrWyMb4SoyEKuae-b8Mt2uXEWzaLJEHMM-B9vH65oBE7lPz9xlQ"/><div class="flex flex-col min-w-0"><span class="font-headline-sm text-headline-sm text-on-surface truncate">Elena Rostova</span><span class="font-label-sm text-label-sm text-primary font-bold">Super Admin • Tier 3</span><span class="font-mono-data text-[10px] text-on-surface-variant">erostova@meta-waba.internal</span></div></div><div class="px-space-md py-space-xs"><div class="px-space-sm py-space-xs rounded-lg bg-surface-container-high/60 flex items-center justify-between"><span class="font-label-sm text-label-sm text-on-surface-variant">API Health</span><span class="font-label-sm text-label-sm text-primary font-bold flex items-center gap-1"><span class="w-1.5 h-1.5 rounded-full bg-primary"></span> 99.98% SLA</span></div></div><nav class="flex-1 overflow-y-auto px-space-sm py-space-xs space-y-space-xxs" data-active-classes="bg-primary-container text-on-primary-container font-semibold"><a aria-current="page" class="flex items-center justify-between px-space-md py-space-sm rounded-xl transition-colors min-h-[44px] bg-primary-container text-on-primary-container font-semibold" data-path="dashboard" href="#"><div class="flex items-center gap-space-md"><span class="material-symbols-outlined text-[20px]">grid_view</span><span class="font-body-md text-body-md">Dashboard</span></div><span class="font-label-sm text-[11px] px-2 py-0.5 rounded-full bg-surface-container text-on-surface-variant font-medium">Live</span></a><a class="flex items-center justify-between px-space-md py-space-sm rounded-xl text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors min-h-[44px]" data-path="whatsapp" href="#"><div class="flex items-center gap-space-md"><span class="material-symbols-outlined text-[20px]">phone_in_talk</span><span class="font-body-md text-body-md">WhatsApp</span></div><span class="font-label-sm text-[11px] px-2 py-0.5 rounded-full bg-secondary-container text-on-secondary-container font-medium">Online</span></a><a class="flex items-center justify-between px-space-md py-space-sm rounded-xl text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors min-h-[44px]" data-path="inbox" href="#"><div class="flex items-center gap-space-md"><span class="material-symbols-outlined text-[20px]">chat</span><span class="font-body-md text-body-md">Inbox</span></div><span class="font-label-sm text-[11px] px-2 py-0.5 rounded-full bg-primary text-on-primary font-bold">14</span></a><a class="flex items-center justify-between px-space-md py-space-sm rounded-xl text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors min-h-[44px]" data-path="contacts" href="#"><div class="flex items-center gap-space-md"><span class="material-symbols-outlined text-[20px]">contacts</span><span class="font-body-md text-body-md">Contacts</span></div><span class="font-label-sm text-[11px] px-2 py-0.5 rounded-full bg-surface-container text-on-surface-variant font-medium">2.8k</span></a><a class="flex items-center justify-between px-space-md py-space-sm rounded-xl text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors min-h-[44px]" data-path="documents-pdfs" href="#"><div class="flex items-center gap-space-md"><span class="material-symbols-outlined text-[20px]">folder_data</span><span class="font-body-md text-body-md">Documents / PDFs</span></div><span class="font-label-sm text-[11px] px-2 py-0.5 rounded-full bg-surface-container text-on-surface-variant font-medium">ChromaDB</span></a><a class="flex items-center justify-between px-space-md py-space-sm rounded-xl text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors min-h-[44px]" data-path="message-templates" href="#"><div class="flex items-center gap-space-md"><span class="material-symbols-outlined text-[20px]">mark_chat_read</span><span class="font-body-md text-body-md">Message Templates</span></div><span class="font-label-sm text-[11px] px-2 py-0.5 rounded-full bg-surface-container text-on-surface-variant font-medium">HSM</span></a><a class="flex items-center justify-between px-space-md py-space-sm rounded-xl text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors min-h-[44px]" data-path="users-roles" href="#"><div class="flex items-center gap-space-md"><span class="material-symbols-outlined text-[20px]">shield_person</span><span class="font-body-md text-body-md">Users &amp; Roles</span></div><span class="font-label-sm text-[11px] px-2 py-0.5 rounded-full bg-surface-container text-on-surface-variant font-medium">RBAC</span></a><a class="flex items-center justify-between px-space-md py-space-sm rounded-xl text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors min-h-[44px]" data-path="activity-logs" href="#"><div class="flex items-center gap-space-md"><span class="material-symbols-outlined text-[20px]">receipt_long</span><span class="font-body-md text-body-md">Activity Logs</span></div><span class="font-label-sm text-[11px] px-2 py-0.5 rounded-full bg-surface-container text-on-surface-variant font-medium">Audit</span></a><a class="flex items-center justify-between px-space-md py-space-sm rounded-xl text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors min-h-[44px]" data-path="settings" href="#"><div class="flex items-center gap-space-md"><span class="material-symbols-outlined text-[20px]">settings</span><span class="font-body-md text-body-md">Settings</span></div><span class="font-label-sm text-[11px] px-2 py-0.5 rounded-full bg-surface-container text-on-surface-variant font-medium">Config</span></a></nav><div class="p-space-md bg-surface-container-low"><div class="px-space-md py-space-sm rounded-xl bg-surface text-center"><p class="font-label-sm text-[10px] text-on-surface-variant font-medium leading-relaxed">Internal Business Portal — Meta Cloud API v20.0 — PostgreSQL &amp; ChromaDB Integrated</p></div></div></aside><main class="flex-1 flex flex-col relative w-full pt-20 pb-20 bg-surface"><div class="flex flex-col w-full px-space-md py-space-sm space-y-space-md">
+<!-- Operational Alert Banner -->
+<div class="flex items-center justify-between p-space-sm rounded-xl bg-surface-container-high/80 text-on-surface shadow-sm">
+<div class="flex items-center gap-space-xs min-w-0">
+<div class="w-7 h-7 rounded-lg bg-primary-container/20 flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-[18px] text-primary" style="font-variation-settings: 'FILL' 1;">verified_user</span>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="font-label-sm text-label-sm text-primary font-bold uppercase tracking-wider">System Integrity Ok</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant truncate">Webhook signature active • PostgreSQL auto-vacuum done</p>
+</div>
+</div>
+<div class="flex items-center gap-1 shrink-0 ml-space-xs">
+<span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
+<span class="font-mono-data text-[10px] text-primary font-semibold">0 err</span>
+</div>
+</div>
+<!-- Primary Meta Connection & Health Card -->
+<div class="rounded-xl bg-surface-container-lowest p-space-md shadow-sm space-y-space-sm">
+<div class="flex items-start justify-between">
+<div class="flex items-center gap-space-sm">
+<div class="w-10 h-10 rounded-xl bg-secondary-container/40 flex items-center justify-center text-primary shrink-0">
+<span class="material-symbols-outlined text-[24px]">perm_phone_msg</span>
+</div>
+<div class="flex flex-col">
+<div class="flex items-center gap-space-xs">
+<span class="font-headline-sm text-headline-sm text-on-surface">Support &amp; Billing</span>
+<span class="px-space-xs py-[2px] rounded bg-secondary-container text-on-secondary-container font-label-sm text-[10px] uppercase font-bold tracking-tight">Cloud v20.0</span>
+</div>
+<span class="font-mono-data text-body-sm text-on-surface-variant">+1 (555) 019-2834</span>
+</div>
+</div>
+<div class="flex items-center gap-1 px-space-xs py-[3px] rounded-full bg-secondary-container/30 text-primary">
+<span class="relative flex h-2 w-2">
+<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
+<span class="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
+</span>
+<span class="font-label-sm text-[10px] font-bold uppercase tracking-wide">Live Stream</span>
+</div>
+</div>
+<!-- Health Indicators Matrix -->
+<div class="grid grid-cols-2 gap-space-xs pt-space-xs">
+<div class="p-space-xs rounded-lg bg-surface-container-low flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface-variant">Quality Rating</span>
+<div class="flex items-center gap-1 mt-0.5">
+<span class="material-symbols-outlined text-[16px] text-primary" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<span class="font-headline-sm text-headline-sm text-primary font-bold">High (Green)</span>
+</div>
+</div>
+<div class="p-space-xs rounded-lg bg-surface-container-low flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface-variant">Messaging Tier</span>
+<div class="flex items-center gap-1 mt-0.5">
+<span class="material-symbols-outlined text-[16px] text-on-surface-variant">speed</span>
+<span class="font-headline-sm text-headline-sm text-on-surface font-bold">100K / day</span>
+</div>
+</div>
+<div class="p-space-xs rounded-lg bg-surface-container-low flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface-variant">Webhook Ingest</span>
+<div class="flex items-center gap-1 mt-0.5">
+<span class="material-symbols-outlined text-[16px] text-primary">swap_horiz</span>
+<span class="font-headline-sm text-headline-sm text-on-surface font-bold font-mono-data">42ms latency</span>
+</div>
+</div>
+<div class="p-space-xs rounded-lg bg-surface-container-low flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface-variant">ChromaDB Sync</span>
+<div class="flex items-center gap-1 mt-0.5">
+<span class="material-symbols-outlined text-[16px] text-primary" style="font-variation-settings: 'FILL' 1;">database</span>
+<span class="font-headline-sm text-headline-sm text-primary font-bold">Operational</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Real-Time Metrics 2x2 Bento -->
+<div class="grid grid-cols-2 gap-space-sm">
+<!-- Unread Messages (Urgent Attention) -->
+<div class="p-space-md rounded-xl bg-primary text-on-primary shadow-sm flex flex-col justify-between relative overflow-hidden">
+<div class="absolute -right-4 -bottom-4 w-16 h-16 rounded-full bg-white/10 pointer-events-none"></div>
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm font-semibold tracking-wider text-on-primary uppercase">Attention</span>
+<span class="material-symbols-outlined text-[20px] text-on-primary">mark_chat_unread</span>
+</div>
+<div class="my-space-xs">
+<div class="font-display-sm text-display-sm font-bold tracking-tight">18</div>
+<p class="font-body-sm text-body-sm text-on-primary/90 mt-0.5 leading-snug">Unread &amp; awaiting SLA dispatch</p>
+</div>
+<div class="flex items-center gap-1 text-[11px] font-label-sm text-secondary-fixed font-bold">
+<span>Action required</span>
+<span class="material-symbols-outlined text-[14px]">arrow_forward</span>
+</div>
+</div>
+<!-- Active Conversations -->
+<div class="p-space-md rounded-xl bg-surface-container-lowest text-on-surface shadow-sm flex flex-col justify-between">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm font-semibold text-on-surface-variant uppercase tracking-wider">Conversations</span>
+<span class="material-symbols-outlined text-[20px] text-primary">chat_bubble</span>
+</div>
+<div class="my-space-xs">
+<div class="font-display-sm text-display-sm font-bold text-on-surface tracking-tight">3,492</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5"><span class="font-semibold text-primary">284 active</span> today</p>
+</div>
+<div class="w-full bg-surface-container-high h-1.5 rounded-full overflow-hidden">
+<div class="bg-primary h-full rounded-full" style="width: 72%;"></div>
+</div>
+</div>
+<!-- Total Directory Contacts -->
+<div class="p-space-md rounded-xl bg-surface-container-lowest text-on-surface shadow-sm flex flex-col justify-between">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm font-semibold text-on-surface-variant uppercase tracking-wider">Contacts</span>
+<span class="material-symbols-outlined text-[20px] text-on-surface-variant">contacts</span>
+</div>
+<div class="my-space-xs">
+<div class="font-display-sm text-display-sm font-bold text-on-surface tracking-tight">14,820</div>
+<div class="flex items-center gap-1 mt-0.5">
+<span class="material-symbols-outlined text-[14px] text-primary font-bold">trending_up</span>
+<span class="font-body-sm text-body-sm text-primary font-semibold">+340 this week</span>
+</div>
+</div>
+<span class="font-mono-data text-[10px] text-on-surface-variant">Sync: 1m ago</span>
+</div>
+<!-- ChromaDB PDF Knowledge Base -->
+<div class="p-space-md rounded-xl bg-surface-container-lowest text-on-surface shadow-sm flex flex-col justify-between">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm font-semibold text-on-surface-variant uppercase tracking-wider">Indexed PDFs</span>
+<span class="material-symbols-outlined text-[20px] text-on-surface-variant">picture_as_pdf</span>
+</div>
+<div class="my-space-xs">
+<div class="font-display-sm text-display-sm font-bold text-on-surface tracking-tight">42 docs</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5 leading-tight"><span class="font-mono-data font-semibold text-on-surface">184,200</span> vector chunks</p>
+</div>
+<span class="font-label-sm text-[10px] text-primary font-semibold uppercase">ChromaDB Live</span>
+</div>
+</div>
+<!-- Operational Action Strip -->
+<div class="flex flex-col space-y-space-xs">
+<span class="font-headline-sm text-headline-sm text-on-surface px-space-xxs">Quick Dispatch Actions</span>
+<div class="grid grid-cols-2 gap-space-xs">
+<button class="flex items-center gap-space-xs p-space-sm rounded-xl bg-surface-container text-on-surface hover:bg-surface-container-high transition-colors text-left shadow-sm" type="button">
+<div class="w-8 h-8 rounded-lg bg-primary text-on-primary flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-[18px]">forum</span>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="font-headline-sm text-headline-sm truncate">Live Inbox</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant truncate">18 pending</span>
+</div>
+</button>
+<button class="flex items-center gap-space-xs p-space-sm rounded-xl bg-surface-container text-on-surface hover:bg-surface-container-high transition-colors text-left shadow-sm" type="button">
+<div class="w-8 h-8 rounded-lg bg-secondary-container text-on-secondary-container flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-[18px]">upload_file</span>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="font-headline-sm text-headline-sm truncate">Upload PDF</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant truncate">Embed &amp; train</span>
+</div>
+</button>
+<button class="flex items-center gap-space-xs p-space-sm rounded-xl bg-surface-container text-on-surface hover:bg-surface-container-high transition-colors text-left shadow-sm" type="button">
+<div class="w-8 h-8 rounded-lg bg-surface-container-highest text-on-surface flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-[18px]">person_search</span>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="font-headline-sm text-headline-sm truncate">Contacts</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant truncate">14.8k profiles</span>
+</div>
+</button>
+<button class="flex items-center gap-space-xs p-space-sm rounded-xl bg-surface-container text-on-surface hover:bg-surface-container-high transition-colors text-left shadow-sm" type="button">
+<div class="w-8 h-8 rounded-lg bg-surface-container-highest text-primary flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-[18px]">monitor_heart</span>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="font-headline-sm text-headline-sm truncate">API Health</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant truncate">Meta &amp; DB logs</span>
+</div>
+</button>
+</div>
+</div>
+<!-- Operational Flow Chart Placeholder Graphic -->
+<div class="rounded-xl bg-surface-container-lowest p-space-md shadow-sm space-y-space-xs">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-[20px] text-primary">hub</span>
+<span class="font-headline-sm text-headline-sm text-on-surface">24h Inbound Traffic Pattern</span>
+</div>
+<span class="font-mono-data text-label-sm text-on-surface-variant font-medium">Avg 145 msg/h</span>
+</div>
+<div class="pt-space-xs">
+<!-- Lightweight Inline SVG Sparkline / Bar Graph -->
+<svg class="w-full h-16 text-primary" fill="none" preserveaspectratio="none" viewbox="0 0 320 60">
+<defs>
+<lineargradient id="gradEmerald" x1="0" x2="0" y1="0" y2="1">
+<stop offset="0%" stop-color="#00855d" stop-opacity="0.35"></stop>
+<stop offset="100%" stop-color="#00855d" stop-opacity="0.0"></stop>
+</lineargradient>
+</defs>
+<path d="M0,45 C20,40 40,48 60,35 C80,22 100,38 120,25 C140,12 160,30 180,18 C200,6 220,28 240,15 C260,2 280,18 300,8 L320,12 L320,60 L0,60 Z" fill="url(#gradEmerald)"></path>
+<path d="M0,45 C20,40 40,48 60,35 C80,22 100,38 120,25 C140,12 160,30 180,18 C200,6 220,28 240,15 C260,2 280,18 300,8 L320,12" stroke="#006948" stroke-linecap="round" stroke-width="2.5"></path>
+<circle cx="300" cy="8" fill="#006948" r="3.5"></circle>
+<circle cx="300" cy="8" fill="#006948" fill-opacity="0.2" r="7"></circle>
+</svg>
+<div class="flex justify-between items-center text-[10px] font-mono-data text-on-surface-variant pt-1 px-1">
+<span>00:00</span>
+<span>06:00</span>
+<span>12:00</span>
+<span>18:00</span>
+<span class="text-primary font-bold">Now</span>
+</div>
+</div>
+</div>
+<!-- Priority Active Conversations Queue -->
+<div class="rounded-xl bg-surface-container-lowest p-space-md shadow-sm space-y-space-sm">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-[20px] text-primary">inbox</span>
+<span class="font-headline-sm text-headline-sm text-on-surface">Recent Active Inquiries</span>
+</div>
+<button class="font-label-sm text-label-sm text-primary font-bold hover:underline" type="button">View All (18)</button>
+</div>
+<div class="flex flex-col space-y-space-xs">
+<!-- Conversation Row 1 -->
+<div class="p-space-sm rounded-xl bg-surface-container-low hover:bg-surface-container transition-colors flex flex-col gap-1">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-xs min-w-0">
+<span class="font-headline-sm text-headline-sm text-on-surface truncate">Marcus Vance</span>
+<span class="px-space-xs py-0.5 rounded bg-error/15 text-error font-label-sm text-[10px] font-bold uppercase tracking-tight">Urgent Inquiry</span>
+</div>
+<span class="font-mono-data text-label-sm text-on-surface-variant shrink-0">2m ago</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface font-medium truncate">"Payment went through but API token hasn't refreshed on production cluster."</p>
+<div class="flex items-center justify-between pt-0.5">
+<span class="font-mono-data text-[11px] text-on-surface-variant">+1 (555) 728-1920</span>
+<span class="px-1.5 py-0.5 rounded-full bg-primary text-on-primary font-label-sm text-[10px] font-bold">3 unread</span>
+</div>
+</div>
+<!-- Conversation Row 2 -->
+<div class="p-space-sm rounded-xl bg-surface-container-low hover:bg-surface-container transition-colors flex flex-col gap-1">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-xs min-w-0">
+<span class="font-headline-sm text-headline-sm text-on-surface truncate">Devon Lane (Starlight Corp)</span>
+<span class="px-space-xs py-0.5 rounded bg-surface-container-highest text-on-surface font-label-sm text-[10px] font-semibold uppercase tracking-tight">Invoice Request</span>
+</div>
+<span class="font-mono-data text-label-sm text-on-surface-variant shrink-0">14m ago</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant truncate">"Could you resend the VAT-compliant receipt for July batch dispatches?"</p>
+<div class="flex items-center justify-between pt-0.5">
+<span class="font-mono-data text-[11px] text-on-surface-variant">+44 7911 204918</span>
+<span class="px-1.5 py-0.5 rounded-full bg-primary text-on-primary font-label-sm text-[10px] font-bold">1 unread</span>
+</div>
+</div>
+<!-- Conversation Row 3 -->
+<div class="p-space-sm rounded-xl bg-surface-container-low hover:bg-surface-container transition-colors flex flex-col gap-1">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-xs min-w-0">
+<span class="font-headline-sm text-headline-sm text-on-surface truncate">Aria Montgomery</span>
+<span class="px-space-xs py-0.5 rounded bg-secondary-container text-on-secondary-container font-label-sm text-[10px] font-bold uppercase tracking-tight">Product Support</span>
+</div>
+<span class="font-mono-data text-label-sm text-on-surface-variant shrink-0">38m ago</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant truncate">"Automated bot matched PDF terms page 14 correctly, asking for verification."</p>
+<div class="flex items-center justify-between pt-0.5">
+<span class="font-mono-data text-[11px] text-on-surface-variant">+1 (555) 392-8812</span>
+<span class="flex items-center gap-1 font-mono-data text-[11px] text-primary">
+<span class="material-symbols-outlined text-[14px]">done_all</span>
+<span>ChromaDB matched</span>
+</span>
+</div>
+</div>
+<!-- Conversation Row 4 -->
+<div class="p-space-sm rounded-xl bg-surface-container-low hover:bg-surface-container transition-colors flex flex-col gap-1">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-xs min-w-0">
+<span class="font-headline-sm text-headline-sm text-on-surface truncate">Tariq Al-Mansoor</span>
+<span class="px-space-xs py-0.5 rounded bg-secondary-container text-on-secondary-container font-label-sm text-[10px] font-bold uppercase tracking-tight">Product Support</span>
+</div>
+<span class="font-mono-data text-label-sm text-on-surface-variant shrink-0">1h ago</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant truncate">"Can we schedule high-volume template approval for tomorrow's regional roll-out?"</p>
+<div class="flex items-center justify-between pt-0.5">
+<span class="font-mono-data text-[11px] text-on-surface-variant">+971 50 182 9301</span>
+<span class="font-label-sm text-[10px] text-on-surface-variant font-medium">Assigned: Elena R.</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Operational Audit Timeline -->
+<div class="rounded-xl bg-surface-container-lowest p-space-md shadow-sm space-y-space-sm">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-[20px] text-primary">receipt_long</span>
+<span class="font-headline-sm text-headline-sm text-on-surface">Recent System Audit Log</span>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant font-mono-data">PostgreSQL Live</span>
+</div>
+<div class="relative pl-space-md space-y-space-md before:absolute before:left-2 before:top-2 before:bottom-2 before:w-[2px] before:bg-surface-container-high">
+<!-- Timeline Entry 1 -->
+<div class="relative flex flex-col gap-0.5">
+<div class="absolute -left-[23px] top-1 w-3.5 h-3.5 rounded-full bg-primary flex items-center justify-center ring-4 ring-surface-container-lowest">
+<span class="w-1.5 h-1.5 rounded-full bg-on-primary"></span>
+</div>
+<div class="flex items-center justify-between">
+<span class="font-headline-sm text-headline-sm text-on-surface">PDF Embedded &amp; Indexed</span>
+<span class="font-mono-data text-[11px] text-on-surface-variant">11:42 AM</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+<span class="font-semibold text-on-surface">Elena R.</span> uploaded <code class="px-1 py-0.5 rounded bg-surface-container text-on-surface font-mono-data text-[11px]">Q3_Policy_Terms.pdf</code> (Embedded into ChromaDB: 4,120 chunks).
+        </p>
+</div>
+<!-- Timeline Entry 2 -->
+<div class="relative flex flex-col gap-0.5">
+<div class="absolute -left-[23px] top-1 w-3.5 h-3.5 rounded-full bg-secondary flex items-center justify-center ring-4 ring-surface-container-lowest">
+<span class="w-1.5 h-1.5 rounded-full bg-on-secondary"></span>
+</div>
+<div class="flex items-center justify-between">
+<span class="font-headline-sm text-headline-sm text-on-surface">Webhook Dispatch Delivered</span>
+<span class="font-mono-data text-[11px] text-on-surface-variant">11:29 AM</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+          Meta webhook received: Incoming message from <span class="font-mono-data font-medium text-on-surface">+1 (555) 482-9901</span> verified with 200 OK.
+        </p>
+</div>
+<!-- Timeline Entry 3 -->
+<div class="relative flex flex-col gap-0.5">
+<div class="absolute -left-[23px] top-1 w-3.5 h-3.5 rounded-full bg-outline-variant flex items-center justify-center ring-4 ring-surface-container-lowest">
+<span class="w-1.5 h-1.5 rounded-full bg-on-surface-variant"></span>
+</div>
+<div class="flex items-center justify-between">
+<span class="font-headline-sm text-headline-sm text-on-surface">HSM Template Updated</span>
+<span class="font-mono-data text-[11px] text-on-surface-variant">10:50 AM</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+<span class="font-semibold text-on-surface">Marcus K.</span> modified template <code class="px-1 py-0.5 rounded bg-surface-container text-on-surface font-mono-data text-[11px]">order_shipped_v2</code>. Auto-approved by Meta Graph API.
+        </p>
+</div>
+</div>
+</div>
+<!-- Operational Footer Metrics -->
+<div class="p-space-sm rounded-xl bg-surface-container-low flex items-center justify-between text-on-surface-variant">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-[16px] text-primary">cloud_done</span>
+<span class="font-label-sm text-[11px]">Meta Graph API: v20.0 (San Jose Gateway)</span>
+</div>
+<span class="font-mono-data text-[11px]">Sync: 00:00:14</span>
+</div>
+</div>
+<script>
+  // Micro-interaction handlers for quick dispatch feedback
+  document.querySelectorAll('button').forEach(btn => {
+    btn.addEventListener('click', function(e) {
+      this.classList.add('scale-[0.98]');
+      setTimeout(() => this.classList.remove('scale-[0.98]'), 120);
+    });
+  });
+</script></main><nav class="fixed bottom-0 inset-x-0 z-50 pb-safe bg-surface/90 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)]" data-active-classes="text-primary font-bold"><div class="flex justify-around items-center h-20 px-space-xs"><a aria-current="page" class="flex flex-col items-center justify-center gap-1 min-w-[56px] h-14 transition-colors text-primary font-bold" data-path="dashboard" href="#"><span class="material-symbols-outlined text-[22px]">grid_view</span><span class="font-label-sm text-[11px]">Dashboard</span></a><a class="flex flex-col items-center justify-center gap-1 min-w-[56px] h-14 text-on-surface-variant hover:text-on-surface transition-colors relative" data-path="inbox" href="#"><span class="material-symbols-outlined text-[22px]">chat</span><span class="font-label-sm text-[11px]">Inbox</span><span class="absolute top-1.5 right-2 w-2 h-2 rounded-full bg-primary"></span></a><a class="flex flex-col items-center justify-center gap-1 min-w-[56px] h-14 text-on-surface-variant hover:text-on-surface transition-colors" data-path="documents-pdfs" href="#"><span class="material-symbols-outlined text-[22px]">folder_data</span><span class="font-label-sm text-[11px]">Documents</span></a><a class="flex flex-col items-center justify-center gap-1 min-w-[56px] h-14 text-on-surface-variant hover:text-on-surface transition-colors" data-path="whatsapp" href="#"><span class="material-symbols-outlined text-[22px]">phone_in_talk</span><span class="font-label-sm text-[11px]">WhatsApp</span></a><button class="flex flex-col items-center justify-center gap-1 min-w-[56px] h-14 text-on-surface-variant hover:text-on-surface transition-colors" onclick="document.getElementById('mobile-drawer').classList.remove('-translate-x-full');document.getElementById('drawer-backdrop').classList.remove('opacity-0','pointer-events-none');" type="button"><span class="material-symbols-outlined text-[22px]">apps</span><span class="font-label-sm text-[11px]">Menu</span></button></div></nav></body></html>

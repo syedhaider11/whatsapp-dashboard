@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+
+<html class="h-full bg-background" lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport"/><meta content="mobile_tab" name="shell-type"/><title>WABA Ops Portal</title><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { colors: { "secondary-container": "#8cf1e1", "on-error": "#ffffff", "on-tertiary-container": "#f7fff3", "surface-dim": "#d2d9f4", "background": "#faf8ff", "surface-container": "#eaedff", "on-secondary-fixed-variant": "#005047", "on-background": "#131b2e", "on-secondary": "#ffffff", "surface-container-lowest": "#ffffff", "inverse-primary": "#68dba9", "on-surface": "#131b2e", "tertiary-fixed-dim": "#3de273", "on-tertiary-fixed": "#002109", "surface": "#faf8ff", "primary": "#006948", "inverse-on-surface": "#eef0ff", "outline-variant": "#bccac0", "on-surface-variant": "#3d4a42", "secondary-fixed": "#8ff4e3", "secondary-fixed-dim": "#72d8c8", "on-primary-fixed": "#002114", "error": "#ba1a1a", "on-primary-container": "#f5fff7", "error-container": "#ffdad6", "on-tertiary": "#ffffff", "primary-container": "#00855d", "surface-tint": "#006c4a", "tertiary-container": "#00873c", "outline": "#6d7a72", "on-secondary-container": "#006f64", "on-tertiary-fixed-variant": "#005322", "on-error-container": "#93000a", "tertiary": "#006b2e", "surface-container-highest": "#dae2fd", "inverse-surface": "#283044", "surface-variant": "#dae2fd", "secondary": "#006b5f", "primary-fixed-dim": "#68dba9", "on-secondary-fixed": "#00201c", "surface-bright": "#faf8ff", "on-primary-fixed-variant": "#005137", "tertiary-fixed": "#66ff8e", "primary-fixed": "#85f8c4", "surface-container-high": "#e2e7ff", "on-primary": "#ffffff", "surface-container-low": "#f2f3ff" }, borderRadius: { "DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem" }, spacing: { "margin": "1rem", "margin-tablet": "1.5rem", "margin-desktop": "2rem", "space-xxs": "0.125rem", "space-xs": "0.25rem", "space-sm": "0.5rem", "space-md": "0.75rem", "space-lg": "1rem", "space-xl": "1.5rem", "space-2xl": "2rem", "gutter-desktop": "1.5rem", "gutter": "1rem" }, fontFamily: { "display-sm": ["Inter"], "body-sm": ["Inter"], "body-md": ["Inter"], "headline-lg": ["Inter"], "headline-sm": ["Inter"], "mono-data": ["Inter"], "headline-md": ["Inter"], "body-lg": ["Inter"], "display-lg": ["Inter"], "label-md": ["Inter"], "label-sm": ["Inter"] }, fontSize: { "display-sm": ["24px", { lineHeight: "32px", letterSpacing: "-0.015em", fontWeight: "600" }], "body-sm": ["12px", { lineHeight: "16px", letterSpacing: "0.01em", fontWeight: "400" }], "body-md": ["14px", { lineHeight: "20px", letterSpacing: "0em", fontWeight: "400" }], "headline-lg": ["20px", { lineHeight: "28px", letterSpacing: "-0.01em", fontWeight: "600" }], "headline-sm": ["14px", { lineHeight: "20px", letterSpacing: "0em", fontWeight: "600" }], "mono-data": ["12px", { lineHeight: "16px", letterSpacing: "0em", fontWeight: "500" }], "headline-md": ["16px", { lineHeight: "24px", letterSpacing: "-0.005em", fontWeight: "600" }], "body-lg": ["16px", { lineHeight: "24px", letterSpacing: "0em", fontWeight: "400" }], "display-lg": ["32px", { lineHeight: "40px", letterSpacing: "-0.02em", fontWeight: "700" }], "label-md": ["12px", { lineHeight: "16px", letterSpacing: "0.01em", fontWeight: "500" }], "label-sm": ["11px", { lineHeight: "14px", letterSpacing: "0.03em", fontWeight: "600" }] } } } };</script><style>@layer base { html, body { width: 100vw; margin: 0; padding: 0; } body { overscroll-behavior: none; } .pb-safe { padding-bottom: env(safe-area-inset-bottom, 0px); } .pt-safe { padding-top: env(safe-area-inset-top, 0px); } main > :first-child { margin-top: 0 !important; } main > :last-child { margin-bottom: 0 !important; } } ::-webkit-scrollbar { display: none; }</style></head><body class="bg-surface text-on-surface antialiased flex flex-col min-h-screen selection:bg-secondary-container selection:text-on-secondary-container"><header class="fixed top-0 w-full z-50 bg-surface/85 backdrop-blur-xl pt-safe shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="h-20 px-space-md flex flex-col justify-center gap-space-xs"><div class="flex items-center justify-between gap-space-sm"><div class="flex items-center gap-space-sm min-w-0"><button aria-label="Open Operations Navigation" class="w-11 h-11 flex items-center justify-center rounded-xl bg-surface-container-low text-on-surface hover:bg-surface-container transition-colors shrink-0" onclick="document.getElementById('mobile-drawer').classList.remove('-translate-x-full');document.getElementById('drawer-backdrop').classList.remove('opacity-0','pointer-events-none');" type="button"><span class="material-symbols-outlined text-[22px]">menu_open</span></button><div class="flex items-center gap-space-xs shrink-0"><img alt="WABA Ops Logo" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1X9qDejTKwj1rDNdcr4HCJVXXR6pgdyYRhxhSMlEsn67ILOrbwOqvdSUPIly5rzk774k3Pq4Rbe9vbts1OeG0LXklpmGd2SpbuQ3BSKSlSf624UvPp21z_p291om6Qp2DbQEKra8Jiqlc0bsrpIfLhF9WKwPAr-iOC31dpzfdh7HJTd_lLKyoIBm0Hd-369wvXdxUty2hbWdjphwMWtRMeuh29Da8zQ87y3ecL69Yko79YGpuRyPQhYwffP"/><div class="flex flex-col"><span class="font-headline-sm text-headline-sm text-on-surface tracking-tight leading-tight">WABA Ops Portal</span><span class="font-label-sm text-label-sm text-on-surface-variant font-mono-data">v20.0 Core</span></div></div></div><div class="flex items-center gap-space-xs shrink-0"><button aria-label="System Notifications" class="relative w-11 h-11 flex items-center justify-center rounded-xl bg-surface-container-low text-on-surface hover:bg-surface-container transition-colors" type="button"><span class="material-symbols-outlined text-[22px]">notifications</span><span class="absolute top-2 right-2 flex items-center justify-center min-w-[16px] h-4 px-1 rounded-full bg-error text-on-error font-label-sm text-[10px] font-bold">3</span></button><div class="flex items-center gap-space-xs pl-space-xs"><img alt="Profile" class="w-8 h-8 rounded-full object-cover shrink-0 ring-2 ring-primary/20" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAmeG0HTwOlIf3xjgEH2_pmMJCktYT5Hg2eI9eW0agbKZNmTqBgbEMn_ao5_jY_UCc50AWoG0aW5hkSZTEYEPwuvD9IZUQDLAb0jpjWjiQoO2WMe2ai9s8dnS4-wMo77YF8D--rEdBh8EGuTvko9bm8LjrC8VdjMjSBTInF8IrDGbz_WOLDE4O0U3_NrjWmSlCgCw5IrWyMb4SoyEKuae-b8Mt2uXEWzaLJEHMM-B9vH65oBE7lPz9xlQ"/><div class="hidden xs:flex flex-col"><span class="font-label-sm text-label-sm font-semibold text-on-surface leading-tight truncate max-w-[90px]">Elena R.</span><span class="font-label-sm text-[10px] text-primary font-bold uppercase tracking-wider">Super Admin</span></div></div></div></div><div class="flex items-center justify-between gap-space-sm"><div class="flex items-center gap-space-xs px-space-sm py-space-xxs rounded-full bg-surface-container text-primary font-label-sm text-label-sm font-medium"><span class="relative flex h-2 w-2"><span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-tertiary-fixed-dim opacity-75"></span><span class="relative inline-flex rounded-full h-2 w-2 bg-primary"></span></span><span class="font-mono-data text-[11px] text-on-surface-variant">+1 (555) 019-2834</span><span class="font-label-sm text-[10px] text-primary font-bold uppercase tracking-wide">Meta Live</span></div><div class="flex items-center gap-space-xs min-w-0"><span class="font-label-sm text-label-sm text-outline uppercase tracking-wider">Scope:</span><span class="font-headline-sm text-headline-sm text-on-surface truncate">Documents / Pdfs</span></div></div></div></header><div class="fixed inset-0 z-50 bg-inverse-surface/40 backdrop-blur-sm opacity-0 pointer-events-none transition-opacity duration-300" id="drawer-backdrop" onclick="document.getElementById('mobile-drawer').classList.add('-translate-x-full');this.classList.add('opacity-0','pointer-events-none');"></div><aside class="fixed top-0 bottom-0 left-0 w-80 max-w-[85vw] z-50 bg-surface-container-lowest flex flex-col -translate-x-full transition-transform duration-300 ease-out shadow-2xl pt-safe pb-safe" id="mobile-drawer"><div class="p-space-lg flex items-center justify-between bg-surface-container-low"><div class="flex items-center gap-space-sm"><img alt="WABA Ops Logo" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1X9qDejTKwj1rDNdcr4HCJVXXR6pgdyYRhxhSMlEsn67ILOrbwOqvdSUPIly5rzk774k3Pq4Rbe9vbts1OeG0LXklpmGd2SpbuQ3BSKSlSf624UvPp21z_p291om6Qp2DbQEKra8Jiqlc0bsrpIfLhF9WKwPAr-iOC31dpzfdh7HJTd_lLKyoIBm0Hd-369wvXdxUty2hbWdjphwMWtRMeuh29Da8zQ87y3ecL69Yko79YGpuRyPQhYwffP"/><div class="flex flex-col"><span class="font-headline-sm text-headline-sm text-on-surface font-bold">WABA Console</span><span class="font-label-sm text-label-sm text-on-surface-variant">Meta Cloud Platform</span></div></div><button aria-label="Close Drawer" class="w-11 h-11 flex items-center justify-center rounded-xl text-on-surface-variant hover:bg-surface-container" onclick="document.getElementById('mobile-drawer').classList.add('-translate-x-full');document.getElementById('drawer-backdrop').classList.add('opacity-0','pointer-events-none');" type="button"><span class="material-symbols-outlined text-[22px]">close</span></button></div><div class="p-space-md mx-space-md my-space-sm rounded-xl bg-surface-container flex items-center gap-space-sm"><img alt="Profile" class="w-10 h-10 rounded-full object-cover shrink-0" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAmeG0HTwOlIf3xjgEH2_pmMJCktYT5Hg2eI9eW0agbKZNmTqBgbEMn_ao5_jY_UCc50AWoG0aW5hkSZTEYEPwuvD9IZUQDLAb0jpjWjiQoO2WMe2ai9s8dnS4-wMo77YF8D--rEdBh8EGuTvko9bm8LjrC8VdjMjSBTInF8IrDGbz_WOLDE4O0U3_NrjWmSlCgCw5IrWyMb4SoyEKuae-b8Mt2uXEWzaLJEHMM-B9vH65oBE7lPz9xlQ"/><div class="flex flex-col min-w-0"><span class="font-headline-sm text-headline-sm text-on-surface truncate">Elena Rostova</span><span class="font-label-sm text-label-sm text-primary font-bold">Super Admin • Tier 3</span><span class="font-mono-data text-[10px] text-on-surface-variant">erostova@meta-waba.internal</span></div></div><div class="px-space-md py-space-xs"><div class="px-space-sm py-space-xs rounded-lg bg-surface-container-high/60 flex items-center justify-between"><span class="font-label-sm text-label-sm text-on-surface-variant">API Health</span><span class="font-label-sm text-label-sm text-primary font-bold flex items-center gap-1"><span class="w-1.5 h-1.5 rounded-full bg-primary"></span> 99.98% SLA</span></div></div><nav class="flex-1 overflow-y-auto px-space-sm py-space-xs space-y-space-xxs" data-active-classes="bg-primary-container text-on-primary-container font-semibold"><a class="flex items-center justify-between px-space-md py-space-sm rounded-xl text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors min-h-[44px]" data-path="dashboard" href="#"><div class="flex items-center gap-space-md"><span class="material-symbols-outlined text-[20px]">grid_view</span><span class="font-body-md text-body-md">Dashboard</span></div><span class="font-label-sm text-[11px] px-2 py-0.5 rounded-full bg-surface-container text-on-surface-variant font-medium">Live</span></a><a class="flex items-center justify-between px-space-md py-space-sm rounded-xl text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors min-h-[44px]" data-path="whatsapp" href="#"><div class="flex items-center gap-space-md"><span class="material-symbols-outlined text-[20px]">phone_in_talk</span><span class="font-body-md text-body-md">WhatsApp</span></div><span class="font-label-sm text-[11px] px-2 py-0.5 rounded-full bg-secondary-container text-on-secondary-container font-medium">Online</span></a><a class="flex items-center justify-between px-space-md py-space-sm rounded-xl text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors min-h-[44px]" data-path="inbox" href="#"><div class="flex items-center gap-space-md"><span class="material-symbols-outlined text-[20px]">chat</span><span class="font-body-md text-body-md">Inbox</span></div><span class="font-label-sm text-[11px] px-2 py-0.5 rounded-full bg-primary text-on-primary font-bold">14</span></a><a class="flex items-center justify-between px-space-md py-space-sm rounded-xl text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors min-h-[44px]" data-path="contacts" href="#"><div class="flex items-center gap-space-md"><span class="material-symbols-outlined text-[20px]">contacts</span><span class="font-body-md text-body-md">Contacts</span></div><span class="font-label-sm text-[11px] px-2 py-0.5 rounded-full bg-surface-container text-on-surface-variant font-medium">2.8k</span></a><a class="flex items-center justify-between px-space-md py-space-sm rounded-xl text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors min-h-[44px]" data-path="documents-pdfs" href="#"><div class="flex items-center gap-space-md"><span class="material-symbols-outlined text-[20px]">folder_data</span><span class="font-body-md text-body-md">Documents / PDFs</span></div><span class="font-label-sm text-[11px] px-2 py-0.5 rounded-full bg-surface-container text-on-surface-variant font-medium">ChromaDB</span></a><a class="flex items-center justify-between px-space-md py-space-sm rounded-xl text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors min-h-[44px]" data-path="message-templates" href="#"><div class="flex items-center gap-space-md"><span class="material-symbols-outlined text-[20px]">mark_chat_read</span><span class="font-body-md text-body-md">Message Templates</span></div><span class="font-label-sm text-[11px] px-2 py-0.5 rounded-full bg-surface-container text-on-surface-variant font-medium">HSM</span></a><a class="flex items-center justify-between px-space-md py-space-sm rounded-xl text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors min-h-[44px]" data-path="users-roles" href="#"><div class="flex items-center gap-space-md"><span class="material-symbols-outlined text-[20px]">shield_person</span><span class="font-body-md text-body-md">Users &amp; Roles</span></div><span class="font-label-sm text-[11px] px-2 py-0.5 rounded-full bg-surface-container text-on-surface-variant font-medium">RBAC</span></a><a class="flex items-center justify-between px-space-md py-space-sm rounded-xl text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors min-h-[44px]" data-path="activity-logs" href="#"><div class="flex items-center gap-space-md"><span class="material-symbols-outlined text-[20px]">receipt_long</span><span class="font-body-md text-body-md">Activity Logs</span></div><span class="font-label-sm text-[11px] px-2 py-0.5 rounded-full bg-surface-container text-on-surface-variant font-medium">Audit</span></a><a class="flex items-center justify-between px-space-md py-space-sm rounded-xl text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors min-h-[44px]" data-path="settings" href="#"><div class="flex items-center gap-space-md"><span class="material-symbols-outlined text-[20px]">settings</span><span class="font-body-md text-body-md">Settings</span></div><span class="font-label-sm text-[11px] px-2 py-0.5 rounded-full bg-surface-container text-on-surface-variant font-medium">Config</span></a></nav><div class="p-space-md bg-surface-container-low"><div class="px-space-md py-space-sm rounded-xl bg-surface text-center"><p class="font-label-sm text-[10px] text-on-surface-variant font-medium leading-relaxed">Internal Business Portal — Meta Cloud API v20.0 — PostgreSQL &amp; ChromaDB Integrated</p></div></div></aside><main class="flex-1 flex flex-col relative w-full pt-20 pb-20 bg-surface"><div class="flex flex-col w-full pb-10 space-y-space-md px-space-md">
+<!-- Architecture Notice Banner -->
+<section class="bg-surface-container-high rounded-xl p-space-md shadow-sm">
+<div class="flex items-start gap-space-sm">
+<div class="w-8 h-8 rounded-full bg-primary/10 text-primary flex items-center justify-center shrink-0 mt-0.5">
+<span class="material-symbols-outlined text-[18px]">account_tree</span>
+</div>
+<div class="flex flex-col min-w-0">
+<div class="flex items-center gap-space-xs mb-1">
+<span class="font-headline-sm text-headline-sm text-on-surface">Storage &amp; Vector Architecture</span>
+<span class="font-label-sm text-[10px] px-1.5 py-0.5 bg-primary/15 text-primary rounded font-semibold uppercase tracking-wider">Active</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
+          PostgreSQL manages relational metadata. Uploaded PDFs reside on local filesystem. ChromaDB stores embeddings and vector chunks for RAG semantic search. Complete PDFs are never stored in databases.
+        </p>
+</div>
+</div>
+</section>
+<!-- Metrics Bento Row -->
+<section class="grid grid-cols-3 gap-space-xs">
+<div class="bg-surface-container-lowest p-space-sm rounded-xl flex flex-col justify-between shadow-sm">
+<div class="flex items-center justify-between text-on-surface-variant mb-1">
+<span class="font-label-sm text-[10px] uppercase font-semibold text-outline">Docs</span>
+<span class="material-symbols-outlined text-[16px] text-primary">picture_as_pdf</span>
+</div>
+<span class="font-headline-lg text-headline-lg text-on-surface font-bold">42</span>
+<span class="font-mono-data text-[10px] text-on-surface-variant">214.6 MB total</span>
+</div>
+<div class="bg-surface-container-lowest p-space-sm rounded-xl flex flex-col justify-between shadow-sm">
+<div class="flex items-center justify-between text-on-surface-variant mb-1">
+<span class="font-label-sm text-[10px] uppercase font-semibold text-outline">Chunks</span>
+<span class="material-symbols-outlined text-[16px] text-secondary">scatter_plot</span>
+</div>
+<span class="font-headline-lg text-headline-lg text-on-surface font-bold">184.2k</span>
+<span class="font-mono-data text-[10px] text-secondary font-medium">Text-ada-002</span>
+</div>
+<div class="bg-surface-container-lowest p-space-sm rounded-xl flex flex-col justify-between shadow-sm">
+<div class="flex items-center justify-between text-on-surface-variant mb-1">
+<span class="font-label-sm text-[10px] uppercase font-semibold text-outline">HNSW</span>
+<span class="w-2 h-2 rounded-full bg-tertiary-fixed-dim animate-pulse"></span>
+</div>
+<span class="font-headline-sm text-headline-sm text-primary font-bold mt-1">Ready</span>
+<span class="font-mono-data text-[10px] text-on-surface-variant">Cosine Dist</span>
+</div>
+</section>
+<!-- Upload & Pipeline Stepper -->
+<section class="bg-surface-container-lowest rounded-xl p-space-md shadow-sm space-y-space-md">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-primary text-[20px]">upload_file</span>
+<h2 class="font-headline-sm text-headline-sm text-on-surface">Ingest &amp; Embed PDF</h2>
+</div>
+<span class="font-label-sm text-[11px] text-outline font-mono-data">Max 25 MB</span>
+</div>
+<!-- Upload Tap Target -->
+<div class="relative group cursor-pointer bg-surface-container-low hover:bg-surface-container rounded-xl p-space-lg flex flex-col items-center justify-center text-center transition-all" id="drop-zone">
+<div class="w-12 h-12 rounded-xl bg-primary/10 text-primary flex items-center justify-center mb-space-xs group-hover:scale-105 transition-transform">
+<span class="material-symbols-outlined text-[28px]">cloud_upload</span>
+</div>
+<span class="font-headline-sm text-headline-sm text-on-surface font-semibold">Tap to upload PDF document</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">Drag files or click to parse into vector pipeline</p>
+<div class="mt-space-sm flex items-center gap-space-xs">
+<button class="px-space-md py-1.5 rounded-lg bg-primary text-on-primary font-label-md text-label-md font-semibold shadow-sm hover:bg-primary-container transition-colors flex items-center gap-1" type="button">
+<span class="material-symbols-outlined text-[16px]">add</span> Upload PDF
+        </button>
+</div>
+<input accept="application/pdf" aria-label="Upload PDF Document" class="absolute inset-0 opacity-0 cursor-pointer" type="file"/>
+</div>
+<!-- Pipeline 6-Stage Visual Stepper -->
+<div class="space-y-space-xs pt-space-xs">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-[11px] uppercase tracking-wider text-outline font-semibold">Ingestion Pipeline Workflow</span>
+<span class="font-mono-data text-[11px] text-primary font-medium">Auto-ChromaDB v0.4</span>
+</div>
+<div class="grid grid-cols-3 gap-1.5 pt-1">
+<div class="bg-surface-container-low p-2 rounded-lg flex items-center gap-2">
+<span class="w-5 h-5 rounded-full bg-primary text-on-primary text-[10px] font-bold flex items-center justify-center shrink-0">1</span>
+<div class="min-w-0">
+<p class="font-label-sm text-[11px] text-on-surface font-semibold truncate leading-tight">Validate</p>
+<p class="font-mono-data text-[9px] text-on-surface-variant truncate">Format &amp; size</p>
+</div>
+</div>
+<div class="bg-surface-container-low p-2 rounded-lg flex items-center gap-2">
+<span class="w-5 h-5 rounded-full bg-primary text-on-primary text-[10px] font-bold flex items-center justify-center shrink-0">2</span>
+<div class="min-w-0">
+<p class="font-label-sm text-[11px] text-on-surface font-semibold truncate leading-tight">Storage</p>
+<p class="font-mono-data text-[9px] text-on-surface-variant truncate">Local secure fs</p>
+</div>
+</div>
+<div class="bg-surface-container-low p-2 rounded-lg flex items-center gap-2">
+<span class="w-5 h-5 rounded-full bg-primary text-on-primary text-[10px] font-bold flex items-center justify-center shrink-0">3</span>
+<div class="min-w-0">
+<p class="font-label-sm text-[11px] text-on-surface font-semibold truncate leading-tight">Metadata</p>
+<p class="font-mono-data text-[9px] text-on-surface-variant truncate">PostgreSQL</p>
+</div>
+</div>
+<div class="bg-surface-container-low p-2 rounded-lg flex items-center gap-2">
+<span class="w-5 h-5 rounded-full bg-primary text-on-primary text-[10px] font-bold flex items-center justify-center shrink-0">4</span>
+<div class="min-w-0">
+<p class="font-label-sm text-[11px] text-on-surface font-semibold truncate leading-tight">Extract</p>
+<p class="font-mono-data text-[9px] text-on-surface-variant truncate">pypdf / OCR</p>
+</div>
+</div>
+<div class="bg-secondary-container/40 p-2 rounded-lg flex items-center gap-2">
+<span class="w-5 h-5 rounded-full bg-secondary text-on-secondary text-[10px] font-bold flex items-center justify-center shrink-0">5</span>
+<div class="min-w-0">
+<p class="font-label-sm text-[11px] text-on-surface font-semibold truncate leading-tight">Embed</p>
+<p class="font-mono-data text-[9px] text-secondary font-medium truncate">Chunking (500t)</p>
+</div>
+</div>
+<div class="bg-surface-container-low p-2 rounded-lg flex items-center gap-2">
+<span class="w-5 h-5 rounded-full bg-primary text-on-primary text-[10px] font-bold flex items-center justify-center shrink-0">6</span>
+<div class="min-w-0">
+<p class="font-label-sm text-[11px] text-on-surface font-semibold truncate leading-tight">ChromaDB</p>
+<p class="font-mono-data text-[9px] text-on-surface-variant truncate">Vector index</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Interactive Semantic Search & QA Panel -->
+<section class="bg-surface-container-lowest rounded-xl p-space-md shadow-sm space-y-space-sm">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-secondary text-[22px]">psychology</span>
+<div>
+<h2 class="font-headline-sm text-headline-sm text-on-surface">RAG Semantic Query</h2>
+<p class="font-mono-data text-[10px] text-on-surface-variant">ChromaDB Collections + LLM Synthesis</p>
+</div>
+</div>
+<span class="px-2 py-0.5 rounded-full bg-secondary-container text-on-secondary-container font-mono-data text-[10px] font-semibold">KNN Top 5</span>
+</div>
+<!-- Query Search Form -->
+<div class="space-y-space-xs">
+<div class="relative flex items-center">
+<span class="material-symbols-outlined absolute left-3 text-outline text-[18px]">search</span>
+<input class="w-full pl-9 pr-10 py-2 text-[13px] bg-surface-container-low rounded-lg text-on-surface placeholder:text-outline focus:outline-none focus:bg-surface-container focus:text-on-surface font-body-md" id="rag-query-input" placeholder="Ask a question across indexed PDF documents (ChromaDB + LLM)..." type="text" value="What is our guaranteed uptime for Meta Cloud API webhooks?"/>
+<button aria-label="Submit Semantic Search" class="absolute right-1.5 w-7 h-7 flex items-center justify-center rounded-md bg-primary text-on-primary hover:bg-primary-container transition-colors" onclick="simulateSearch()" type="button">
+<span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</button>
+</div>
+<!-- Quick sample prompts -->
+<div class="flex items-center gap-1.5 overflow-x-auto pb-1 text-nowrap">
+<span class="font-label-sm text-[10px] text-outline uppercase font-semibold shrink-0">Try:</span>
+<button class="px-2 py-0.5 rounded bg-surface-container text-on-surface-variant text-[11px] font-label-sm hover:bg-surface-container-high transition-colors" onclick="setQuery('What is our guaranteed uptime for Meta Cloud API webhooks?')" type="button">Webhook SLA</button>
+<button class="px-2 py-0.5 rounded bg-surface-container text-on-surface-variant text-[11px] font-label-sm hover:bg-surface-container-high transition-colors" onclick="setQuery('What are the vendor data retention terms under section 4.2?')" type="button">Data Retention</button>
+<button class="px-2 py-0.5 rounded bg-surface-container text-on-surface-variant text-[11px] font-label-sm hover:bg-surface-container-high transition-colors" onclick="setQuery('Summarize MFA requirements for tier-3 admin access.')" type="button">MFA Auth Rules</button>
+</div>
+</div>
+<!-- Synthesized Answer Card -->
+<div class="bg-surface-container-low rounded-xl p-space-md space-y-space-sm mt-space-xs" id="rag-answer-box">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-primary text-[18px]">verified</span>
+<span class="font-label-md text-label-md font-semibold text-primary">Generated RAG Context</span>
+</div>
+<span class="font-mono-data text-[10px] text-on-surface-variant">Response latency: 284ms</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface leading-relaxed">
+        According to <span class="font-semibold text-primary">Enterprise_SLA_2024.pdf</span> (Page 12, Paragraph 3), the uptime guarantee is <span class="bg-secondary-container/60 px-1 py-0.5 rounded font-semibold text-on-surface">99.95%</span> with automated multi-region failover.
+      </p>
+<!-- Citation Pill -->
+<div class="pt-space-xs flex flex-col gap-1.5">
+<span class="font-label-sm text-[10px] uppercase font-bold tracking-wider text-outline">Verified Source Citation</span>
+<div class="flex items-center justify-between p-2 rounded-lg bg-surface-container-lowest text-on-surface shadow-xs">
+<div class="flex items-center gap-2 min-w-0">
+<span class="material-symbols-outlined text-primary text-[18px] shrink-0">bookmark</span>
+<div class="flex flex-col min-w-0">
+<span class="font-label-md text-label-md font-semibold truncate text-on-surface">Enterprise_SLA_2024.pdf</span>
+<span class="font-mono-data text-[10px] text-on-surface-variant">Chunk #84 • Cosine similarity: 0.96</span>
+</div>
+</div>
+<button class="px-2 py-1 rounded bg-surface-container text-on-surface text-[11px] font-label-sm font-semibold shrink-0 hover:bg-surface-container-high transition-colors" onclick="openDetails('Enterprise_SLA_2024.pdf', '4.2 MB', '3,420')" type="button">
+            Inspect
+          </button>
+</div>
+</div>
+</div>
+</section>
+<!-- Uploaded Documents Registry -->
+<section class="space-y-space-xs">
+<div class="flex items-center justify-between px-space-xxs">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-on-surface text-[20px]">folder_special</span>
+<h2 class="font-headline-sm text-headline-sm text-on-surface">Indexed Documents</h2>
+</div>
+<span class="font-mono-data text-body-sm text-on-surface-variant">4 documents</span>
+</div>
+<!-- Document Cards Stack -->
+<div class="space-y-space-xs">
+<!-- Card 1: Enterprise SLA -->
+<div class="bg-surface-container-lowest rounded-xl p-space-md shadow-sm space-y-space-xs">
+<div class="flex items-start justify-between gap-2">
+<div class="flex items-center gap-space-sm min-w-0">
+<div class="w-10 h-10 rounded-xl bg-primary/10 text-primary flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-[22px]">description</span>
+</div>
+<div class="min-w-0">
+<h3 class="font-headline-sm text-headline-sm text-on-surface truncate font-semibold">Enterprise_SLA_2024.pdf</h3>
+<p class="font-mono-data text-[11px] text-on-surface-variant">4.2 MB • Elena R. • 3,420 chunks</p>
+</div>
+</div>
+<span class="px-2 py-0.5 rounded-full bg-secondary-container text-on-secondary-container font-label-sm text-[10px] font-bold uppercase shrink-0">
+            Ready
+          </span>
+</div>
+<div class="flex items-center justify-between pt-1 text-on-surface-variant">
+<span class="font-mono-data text-[10px] text-outline">PostgreSQL ID: doc_9821a</span>
+<div class="flex items-center gap-1">
+<button aria-label="Semantic Search Enterprise SLA" class="w-8 h-8 rounded-lg bg-surface-container-low text-on-surface hover:bg-surface-container flex items-center justify-center transition-colors" onclick="setQuery('Enterprise SLA uptime guarantee rules');" type="button">
+<span class="material-symbols-outlined text-[16px]">travel_explore</span>
+</button>
+<button aria-label="Re-index Enterprise SLA" class="w-8 h-8 rounded-lg bg-surface-container-low text-on-surface hover:bg-surface-container flex items-center justify-center transition-colors" onclick="triggerToast('Re-indexing doc_9821a into ChromaDB...');" type="button">
+<span class="material-symbols-outlined text-[16px]">sync</span>
+</button>
+<button aria-label="View Details" class="w-8 h-8 rounded-lg bg-surface-container-low text-on-surface hover:bg-surface-container flex items-center justify-center transition-colors" onclick="openDetails('Enterprise_SLA_2024.pdf', '4.2 MB', '3,420')" type="button">
+<span class="material-symbols-outlined text-[16px]">info</span>
+</button>
+<button aria-label="Delete Document" class="w-8 h-8 rounded-lg bg-error-container/40 text-error hover:bg-error-container flex items-center justify-center transition-colors" onclick="openDeleteModal('Enterprise_SLA_2024.pdf', '3,420 chunks')" type="button">
+<span class="material-symbols-outlined text-[16px]">delete</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Card 2: Security Audit Report -->
+<div class="bg-surface-container-lowest rounded-xl p-space-md shadow-sm space-y-space-xs">
+<div class="flex items-start justify-between gap-2">
+<div class="flex items-center gap-space-sm min-w-0">
+<div class="w-10 h-10 rounded-xl bg-primary/10 text-primary flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-[22px]">description</span>
+</div>
+<div class="min-w-0">
+<h3 class="font-headline-sm text-headline-sm text-on-surface truncate font-semibold">Security_Audit_Report.pdf</h3>
+<p class="font-mono-data text-[11px] text-on-surface-variant">12.8 MB • Marcus K. • 9,120 chunks</p>
+</div>
+</div>
+<span class="px-2 py-0.5 rounded-full bg-secondary-container text-on-secondary-container font-label-sm text-[10px] font-bold uppercase shrink-0">
+            Ready
+          </span>
+</div>
+<div class="flex items-center justify-between pt-1 text-on-surface-variant">
+<span class="font-mono-data text-[10px] text-outline">PostgreSQL ID: doc_7714b</span>
+<div class="flex items-center gap-1">
+<button aria-label="Semantic Search Security Audit" class="w-8 h-8 rounded-lg bg-surface-container-low text-on-surface hover:bg-surface-container flex items-center justify-center transition-colors" onclick="setQuery('What vulnerabilities were identified in the SOC2 audit?');" type="button">
+<span class="material-symbols-outlined text-[16px]">travel_explore</span>
+</button>
+<button aria-label="Re-index Security Audit" class="w-8 h-8 rounded-lg bg-surface-container-low text-on-surface hover:bg-surface-container flex items-center justify-center transition-colors" onclick="triggerToast('Re-indexing doc_7714b in background queue...');" type="button">
+<span class="material-symbols-outlined text-[16px]">sync</span>
+</button>
+<button aria-label="View Details" class="w-8 h-8 rounded-lg bg-surface-container-low text-on-surface hover:bg-surface-container flex items-center justify-center transition-colors" onclick="openDetails('Security_Audit_Report.pdf', '12.8 MB', '9,120')" type="button">
+<span class="material-symbols-outlined text-[16px]">info</span>
+</button>
+<button aria-label="Delete Document" class="w-8 h-8 rounded-lg bg-error-container/40 text-error hover:bg-error-container flex items-center justify-center transition-colors" onclick="openDeleteModal('Security_Audit_Report.pdf', '9,120 chunks')" type="button">
+<span class="material-symbols-outlined text-[16px]">delete</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Card 3: Onboarding Manual v3 (Creating embeddings 78%) -->
+<div class="bg-surface-container-lowest rounded-xl p-space-md shadow-sm space-y-space-xs">
+<div class="flex items-start justify-between gap-2">
+<div class="flex items-center gap-space-sm min-w-0">
+<div class="w-10 h-10 rounded-xl bg-surface-container-high text-on-surface flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-[22px]">pending_actions</span>
+</div>
+<div class="min-w-0">
+<h3 class="font-headline-sm text-headline-sm text-on-surface truncate font-semibold">Onboarding_Manual_v3.pdf</h3>
+<p class="font-mono-data text-[11px] text-on-surface-variant">1.8 MB • Priya P. • Estimating 1,400 chunks</p>
+</div>
+</div>
+<span class="px-2 py-0.5 rounded-full bg-surface-container-high text-on-surface font-label-sm text-[10px] font-bold uppercase shrink-0">
+            Stage 5
+          </span>
+</div>
+<!-- Progress Bar (Amber/Processing) -->
+<div class="space-y-1 pt-1">
+<div class="flex items-center justify-between text-[11px]">
+<span class="font-label-sm font-semibold text-primary flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-primary animate-ping"></span> Creating embeddings (78%)
+            </span>
+<span class="font-mono-data text-outline text-[10px]">1,092 / 1,400 chunks</span>
+</div>
+<div class="w-full h-1.5 rounded-full bg-surface-container overflow-hidden">
+<div class="h-full bg-primary rounded-full transition-all duration-500" style="width: 78%"></div>
+</div>
+</div>
+<div class="flex items-center justify-between pt-1 text-on-surface-variant">
+<span class="font-mono-data text-[10px] text-outline">PostgreSQL ID: doc_4399c</span>
+<div class="flex items-center gap-1">
+<button class="w-8 h-8 rounded-lg bg-surface-container-low text-outline opacity-40 flex items-center justify-center cursor-not-allowed" disabled="" type="button">
+<span class="material-symbols-outlined text-[16px]">travel_explore</span>
+</button>
+<button aria-label="View Details" class="w-8 h-8 rounded-lg bg-surface-container-low text-on-surface hover:bg-surface-container flex items-center justify-center transition-colors" onclick="openDetails('Onboarding_Manual_v3.pdf', '1.8 MB', 'In progress (78%)')" type="button">
+<span class="material-symbols-outlined text-[16px]">info</span>
+</button>
+<button aria-label="Cancel &amp; Delete" class="w-8 h-8 rounded-lg bg-error-container/40 text-error hover:bg-error-container flex items-center justify-center transition-colors" onclick="openDeleteModal('Onboarding_Manual_v3.pdf', 'Vector generation in-flight')" type="button">
+<span class="material-symbols-outlined text-[16px]">delete</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Card 4: Vendor Agreement Draft (Indexing in ChromaDB with Spinner) -->
+<div class="bg-surface-container-lowest rounded-xl p-space-md shadow-sm space-y-space-xs">
+<div class="flex items-start justify-between gap-2">
+<div class="flex items-center gap-space-sm min-w-0">
+<div class="w-10 h-10 rounded-xl bg-secondary-container/40 text-secondary flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-[22px] animate-spin">autorenew</span>
+</div>
+<div class="min-w-0">
+<h3 class="font-headline-sm text-headline-sm text-on-surface truncate font-semibold">Vendor_Agreement_Draft.pdf</h3>
+<p class="font-mono-data text-[11px] text-on-surface-variant">8.4 MB • David T. • 6,280 chunks</p>
+</div>
+</div>
+<span class="px-2 py-0.5 rounded-full bg-secondary-container text-on-secondary-container font-label-sm text-[10px] font-bold uppercase shrink-0 flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary animate-pulse"></span> Indexing
+          </span>
+</div>
+<div class="p-2 rounded-lg bg-surface-container-low flex items-center justify-between">
+<div class="flex items-center gap-1.5 min-w-0">
+<span class="material-symbols-outlined text-[16px] text-secondary shrink-0">memory</span>
+<span class="font-label-sm text-[11px] text-on-surface font-medium truncate">Indexing in ChromaDB collection...</span>
+</div>
+<span class="font-mono-data text-[10px] text-secondary font-semibold shrink-0">Stage 6/6</span>
+</div>
+<div class="flex items-center justify-between pt-1 text-on-surface-variant">
+<span class="font-mono-data text-[10px] text-outline">PostgreSQL ID: doc_1120d</span>
+<div class="flex items-center gap-1">
+<button class="w-8 h-8 rounded-lg bg-surface-container-low text-outline opacity-40 flex items-center justify-center cursor-not-allowed" disabled="" type="button">
+<span class="material-symbols-outlined text-[16px]">travel_explore</span>
+</button>
+<button aria-label="View Details" class="w-8 h-8 rounded-lg bg-surface-container-low text-on-surface hover:bg-surface-container flex items-center justify-center transition-colors" onclick="openDetails('Vendor_Agreement_Draft.pdf', '8.4 MB', 'Writing HNSW Index')" type="button">
+<span class="material-symbols-outlined text-[16px]">info</span>
+</button>
+<button aria-label="Delete Document" class="w-8 h-8 rounded-lg bg-error-container/40 text-error hover:bg-error-container flex items-center justify-center transition-colors" onclick="openDeleteModal('Vendor_Agreement_Draft.pdf', '6,280 chunks')" type="button">
+<span class="material-symbols-outlined text-[16px]">delete</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Delete Confirmation Modal Backdrop & Dialog -->
+<div class="fixed inset-0 z-50 flex items-center justify-center p-space-md bg-inverse-surface/40 backdrop-blur-sm opacity-0 pointer-events-none transition-opacity duration-200" id="delete-modal">
+<div class="w-full max-w-sm bg-surface-container-lowest rounded-xl p-space-lg shadow-xl space-y-space-md">
+<div class="flex items-start gap-space-sm">
+<div class="w-10 h-10 rounded-full bg-error-container/40 text-error flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-[24px]">warning</span>
+</div>
+<div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-bold">Delete Document?</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1 leading-snug">
+            This will remove the file from local filesystem, delete metadata in PostgreSQL, and prune all vectors from ChromaDB.
+          </p>
+</div>
+</div>
+<div class="p-2.5 rounded-lg bg-surface-container-low space-y-1">
+<p class="font-label-md text-label-md text-on-surface font-semibold truncate" id="delete-target-name">Target Document</p>
+<p class="font-mono-data text-[10px] text-outline" id="delete-target-chunks">3,420 chunks</p>
+</div>
+<div class="flex items-center justify-end gap-space-xs pt-1">
+<button class="px-space-md py-1.5 rounded-lg bg-surface-container text-on-surface font-label-md text-label-md hover:bg-surface-container-high transition-colors" onclick="closeDeleteModal()" type="button">
+          Cancel
+        </button>
+<button class="px-space-md py-1.5 rounded-lg bg-error text-on-error font-label-md text-label-md font-semibold hover:opacity-95 transition-opacity" onclick="confirmDelete()" type="button">
+          Delete Document
+        </button>
+</div>
+</div>
+</div>
+<!-- Document Details Drawer / Modal -->
+<div class="fixed inset-0 z-50 flex items-end justify-center bg-inverse-surface/40 backdrop-blur-sm opacity-0 pointer-events-none transition-opacity duration-200" id="details-modal">
+<div class="w-full max-w-md bg-surface-container-lowest rounded-t-2xl p-space-lg shadow-2xl space-y-space-md">
+<div class="flex items-center justify-between pb-space-xs">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-primary text-[22px]">snippet_folder</span>
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-bold">Metadata &amp; Vector Info</h3>
+</div>
+<button class="w-8 h-8 rounded-lg text-on-surface-variant hover:bg-surface-container flex items-center justify-center" onclick="closeDetailsModal()" type="button">
+<span class="material-symbols-outlined text-[18px]">close</span>
+</button>
+</div>
+<div class="space-y-space-xs text-[12px]">
+<div class="flex justify-between py-1.5 px-2 rounded bg-surface-container-low">
+<span class="text-on-surface-variant font-label-sm">File Name</span>
+<span class="font-mono-data text-on-surface font-semibold" id="detail-doc-name">Enterprise_SLA_2024.pdf</span>
+</div>
+<div class="flex justify-between py-1.5 px-2 rounded bg-surface-container-low">
+<span class="text-on-surface-variant font-label-sm">File Size</span>
+<span class="font-mono-data text-on-surface" id="detail-doc-size">4.2 MB</span>
+</div>
+<div class="flex justify-between py-1.5 px-2 rounded bg-surface-container-low">
+<span class="text-on-surface-variant font-label-sm">ChromaDB Chunks</span>
+<span class="font-mono-data text-primary font-bold" id="detail-doc-chunks">3,420</span>
+</div>
+<div class="flex justify-between py-1.5 px-2 rounded bg-surface-container-low">
+<span class="text-on-surface-variant font-label-sm">Physical Storage</span>
+<span class="font-mono-data text-on-surface">/var/storage/waba_docs/</span>
+</div>
+<div class="flex justify-between py-1.5 px-2 rounded bg-surface-container-low">
+<span class="text-on-surface-variant font-label-sm">Collection Hash</span>
+<span class="font-mono-data text-outline text-[11px]">chroma_c79f91a</span>
+</div>
+</div>
+<div class="pt-space-xs">
+<button class="w-full py-2 rounded-lg bg-surface-container font-label-md text-label-md font-semibold text-on-surface hover:bg-surface-container-high transition-colors" onclick="closeDetailsModal()" type="button">
+          Close Inspector
+        </button>
+</div>
+</div>
+</div>
+<!-- Micro Interaction Toast -->
+<div class="fixed bottom-24 left-1/2 -translate-x-1/2 z-50 pointer-events-none opacity-0 transition-opacity duration-300" id="action-toast">
+<div class="px-space-md py-2 bg-inverse-surface text-inverse-on-surface text-[12px] font-label-md rounded-full shadow-lg flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px] text-tertiary-fixed-dim">check_circle</span>
+<span id="toast-text">Operation completed</span>
+</div>
+</div>
+</div>
+<script>
+  function simulateSearch() {
+    const input = document.getElementById('rag-query-input');
+    const val = input.value.trim();
+    if (!val) return;
+    
+    const box = document.getElementById('rag-answer-box');
+    box.classList.add('opacity-50');
+    setTimeout(() => {
+      box.classList.remove('opacity-50');
+      triggerToast('Semantic similarity search updated (0.96 cosine)');
+    }, 300);
+  }
+
+  function setQuery(text) {
+    const input = document.getElementById('rag-query-input');
+    input.value = text;
+    simulateSearch();
+  }
+
+  function openDetails(name, size, chunks) {
+    document.getElementById('detail-doc-name').textContent = name;
+    document.getElementById('detail-doc-size').textContent = size;
+    document.getElementById('detail-doc-chunks').textContent = chunks;
+    
+    const modal = document.getElementById('details-modal');
+    modal.classList.remove('opacity-0', 'pointer-events-none');
+  }
+
+  function closeDetailsModal() {
+    const modal = document.getElementById('details-modal');
+    modal.classList.add('opacity-0', 'pointer-events-none');
+  }
+
+  function openDeleteModal(name, chunkInfo) {
+    document.getElementById('delete-target-name').textContent = name;
+    document.getElementById('delete-target-chunks').textContent = chunkInfo;
+    
+    const modal = document.getElementById('delete-modal');
+    modal.classList.remove('opacity-0', 'pointer-events-none');
+  }
+
+  function closeDeleteModal() {
+    const modal = document.getElementById('delete-modal');
+    modal.classList.add('opacity-0', 'pointer-events-none');
+  }
+
+  function confirmDelete() {
+    closeDeleteModal();
+    triggerToast('Document & associated vector embeddings purged');
+  }
+
+  function triggerToast(msg) {
+    const toast = document.getElementById('action-toast');
+    const txt = document.getElementById('toast-text');
+    txt.textContent = msg;
+    toast.classList.remove('opacity-0');
+    setTimeout(() => {
+      toast.classList.add('opacity-0');
+    }, 2400);
+  }
+</script></main><nav class="fixed bottom-0 inset-x-0 z-50 pb-safe bg-surface/90 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)]" data-active-classes="text-primary font-bold"><div class="flex justify-around items-center h-20 px-space-xs"><a class="flex flex-col items-center justify-center gap-1 min-w-[56px] h-14 text-on-surface-variant hover:text-on-surface transition-colors" data-path="dashboard" href="#"><span class="material-symbols-outlined text-[22px]">grid_view</span><span class="font-label-sm text-[11px]">Dashboard</span></a><a class="flex flex-col items-center justify-center gap-1 min-w-[56px] h-14 text-on-surface-variant hover:text-on-surface transition-colors relative" data-path="inbox" href="#"><span class="material-symbols-outlined text-[22px]">chat</span><span class="font-label-sm text-[11px]">Inbox</span><span class="absolute top-1.5 right-2 w-2 h-2 rounded-full bg-primary"></span></a><a class="flex flex-col items-center justify-center gap-1 min-w-[56px] h-14 text-on-surface-variant hover:text-on-surface transition-colors" data-path="documents-pdfs" href="#"><span class="material-symbols-outlined text-[22px]">folder_data</span><span class="font-label-sm text-[11px]">Documents</span></a><a class="flex flex-col items-center justify-center gap-1 min-w-[56px] h-14 text-on-surface-variant hover:text-on-surface transition-colors" data-path="whatsapp" href="#"><span class="material-symbols-outlined text-[22px]">phone_in_talk</span><span class="font-label-sm text-[11px]">WhatsApp</span></a><button class="flex flex-col items-center justify-center gap-1 min-w-[56px] h-14 text-on-surface-variant hover:text-on-surface transition-colors" onclick="document.getElementById('mobile-drawer').classList.remove('-translate-x-full');document.getElementById('drawer-backdrop').classList.remove('opacity-0','pointer-events-none');" type="button"><span class="material-symbols-outlined text-[22px]">apps</span><span class="font-label-sm text-[11px]">Menu</span></button></div></nav></body></html>

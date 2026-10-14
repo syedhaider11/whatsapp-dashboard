@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+
+<html class="h-full bg-background" lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport"/><meta content="mobile_tab" name="shell-type"/><title>WABA Ops Portal</title><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { colors: { "secondary-container": "#8cf1e1", "on-error": "#ffffff", "on-tertiary-container": "#f7fff3", "surface-dim": "#d2d9f4", "background": "#faf8ff", "surface-container": "#eaedff", "on-secondary-fixed-variant": "#005047", "on-background": "#131b2e", "on-secondary": "#ffffff", "surface-container-lowest": "#ffffff", "inverse-primary": "#68dba9", "on-surface": "#131b2e", "tertiary-fixed-dim": "#3de273", "on-tertiary-fixed": "#002109", "surface": "#faf8ff", "primary": "#006948", "inverse-on-surface": "#eef0ff", "outline-variant": "#bccac0", "on-surface-variant": "#3d4a42", "secondary-fixed": "#8ff4e3", "secondary-fixed-dim": "#72d8c8", "on-primary-fixed": "#002114", "error": "#ba1a1a", "on-primary-container": "#f5fff7", "error-container": "#ffdad6", "on-tertiary": "#ffffff", "primary-container": "#00855d", "surface-tint": "#006c4a", "tertiary-container": "#00873c", "outline": "#6d7a72", "on-secondary-container": "#006f64", "on-tertiary-fixed-variant": "#005322", "on-error-container": "#93000a", "tertiary": "#006b2e", "surface-container-highest": "#dae2fd", "inverse-surface": "#283044", "surface-variant": "#dae2fd", "secondary": "#006b5f", "primary-fixed-dim": "#68dba9", "on-secondary-fixed": "#00201c", "surface-bright": "#faf8ff", "on-primary-fixed-variant": "#005137", "tertiary-fixed": "#66ff8e", "primary-fixed": "#85f8c4", "surface-container-high": "#e2e7ff", "on-primary": "#ffffff", "surface-container-low": "#f2f3ff" }, borderRadius: { "DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem" }, spacing: { "margin": "1rem", "margin-tablet": "1.5rem", "margin-desktop": "2rem", "space-xxs": "0.125rem", "space-xs": "0.25rem", "space-sm": "0.5rem", "space-md": "0.75rem", "space-lg": "1rem", "space-xl": "1.5rem", "space-2xl": "2rem", "gutter-desktop": "1.5rem", "gutter": "1rem" }, fontFamily: { "display-sm": ["Inter"], "body-sm": ["Inter"], "body-md": ["Inter"], "headline-lg": ["Inter"], "headline-sm": ["Inter"], "mono-data": ["Inter"], "headline-md": ["Inter"], "body-lg": ["Inter"], "display-lg": ["Inter"], "label-md": ["Inter"], "label-sm": ["Inter"] }, fontSize: { "display-sm": ["24px", { lineHeight: "32px", letterSpacing: "-0.015em", fontWeight: "600" }], "body-sm": ["12px", { lineHeight: "16px", letterSpacing: "0.01em", fontWeight: "400" }], "body-md": ["14px", { lineHeight: "20px", letterSpacing: "0em", fontWeight: "400" }], "headline-lg": ["20px", { lineHeight: "28px", letterSpacing: "-0.01em", fontWeight: "600" }], "headline-sm": ["14px", { lineHeight: "20px", letterSpacing: "0em", fontWeight: "600" }], "mono-data": ["12px", { lineHeight: "16px", letterSpacing: "0em", fontWeight: "500" }], "headline-md": ["16px", { lineHeight: "24px", letterSpacing: "-0.005em", fontWeight: "600" }], "body-lg": ["16px", { lineHeight: "24px", letterSpacing: "0em", fontWeight: "400" }], "display-lg": ["32px", { lineHeight: "40px", letterSpacing: "-0.02em", fontWeight: "700" }], "label-md": ["12px", { lineHeight: "16px", letterSpacing: "0.01em", fontWeight: "500" }], "label-sm": ["11px", { lineHeight: "14px", letterSpacing: "0.03em", fontWeight: "600" }] } } } };</script><style>@layer base { html, body { width: 100vw; margin: 0; padding: 0; } body { overscroll-behavior: none; } .pb-safe { padding-bottom: env(safe-area-inset-bottom, 0px); } .pt-safe { padding-top: env(safe-area-inset-top, 0px); } main > :first-child { margin-top: 0 !important; } main > :last-child { margin-bottom: 0 !important; } } ::-webkit-scrollbar { display: none; }</style></head><body class="bg-surface text-on-surface antialiased flex flex-col min-h-screen selection:bg-secondary-container selection:text-on-secondary-container"><header class="fixed top-0 w-full z-50 bg-surface/85 backdrop-blur-xl pt-safe shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="h-20 px-space-md flex flex-col justify-center gap-space-xs"><div class="flex items-center justify-between gap-space-sm"><div class="flex items-center gap-space-sm min-w-0"><button aria-label="Open Operations Navigation" class="w-11 h-11 flex items-center justify-center rounded-xl bg-surface-container-low text-on-surface hover:bg-surface-container transition-colors shrink-0" onclick="document.getElementById('mobile-drawer').classList.remove('-translate-x-full');document.getElementById('drawer-backdrop').classList.remove('opacity-0','pointer-events-none');" type="button"><span class="material-symbols-outlined text-[22px]">menu_open</span></button><div class="flex items-center gap-space-xs shrink-0"><img alt="WABA Ops Logo" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1X9qDejTKwj1rDNdcr4HCJVXXR6pgdyYRhxhSMlEsn67ILOrbwOqvdSUPIly5rzk774k3Pq4Rbe9vbts1OeG0LXklpmGd2SpbuQ3BSKSlSf624UvPp21z_p291om6Qp2DbQEKra8Jiqlc0bsrpIfLhF9WKwPAr-iOC31dpzfdh7HJTd_lLKyoIBm0Hd-369wvXdxUty2hbWdjphwMWtRMeuh29Da8zQ87y3ecL69Yko79YGpuRyPQhYwffP"/><div class="flex flex-col"><span class="font-headline-sm text-headline-sm text-on-surface tracking-tight leading-tight">WABA Ops Portal</span><span class="font-label-sm text-label-sm text-on-surface-variant font-mono-data">v20.0 Core</span></div></div></div><div class="flex items-center gap-space-xs shrink-0"><button aria-label="System Notifications" class="relative w-11 h-11 flex items-center justify-center rounded-xl bg-surface-container-low text-on-surface hover:bg-surface-container transition-colors" type="button"><span class="material-symbols-outlined text-[22px]">notifications</span><span class="absolute top-2 right-2 flex items-center justify-center min-w-[16px] h-4 px-1 rounded-full bg-error text-on-error font-label-sm text-[10px] font-bold">3</span></button><div class="flex items-center gap-space-xs pl-space-xs"><img alt="Profile" class="w-8 h-8 rounded-full object-cover shrink-0 ring-2 ring-primary/20" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAmeG0HTwOlIf3xjgEH2_pmMJCktYT5Hg2eI9eW0agbKZNmTqBgbEMn_ao5_jY_UCc50AWoG0aW5hkSZTEYEPwuvD9IZUQDLAb0jpjWjiQoO2WMe2ai9s8dnS4-wMo77YF8D--rEdBh8EGuTvko9bm8LjrC8VdjMjSBTInF8IrDGbz_WOLDE4O0U3_NrjWmSlCgCw5IrWyMb4SoyEKuae-b8Mt2uXEWzaLJEHMM-B9vH65oBE7lPz9xlQ"/><div class="hidden xs:flex flex-col"><span class="font-label-sm text-label-sm font-semibold text-on-surface leading-tight truncate max-w-[90px]">Elena R.</span><span class="font-label-sm text-[10px] text-primary font-bold uppercase tracking-wider">Super Admin</span></div></div></div></div><div class="flex items-center justify-between gap-space-sm"><div class="flex items-center gap-space-xs px-space-sm py-space-xxs rounded-full bg-surface-container text-primary font-label-sm text-label-sm font-medium"><span class="relative flex h-2 w-2"><span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-tertiary-fixed-dim opacity-75"></span><span class="relative inline-flex rounded-full h-2 w-2 bg-primary"></span></span><span class="font-mono-data text-[11px] text-on-surface-variant">+1 (555) 019-2834</span><span class="font-label-sm text-[10px] text-primary font-bold uppercase tracking-wide">Meta Live</span></div><div class="flex items-center gap-space-xs min-w-0"><span class="font-label-sm text-label-sm text-outline uppercase tracking-wider">Scope:</span><span class="font-headline-sm text-headline-sm text-on-surface truncate">Whatsapp</span></div></div></div></header><div class="fixed inset-0 z-50 bg-inverse-surface/40 backdrop-blur-sm opacity-0 pointer-events-none transition-opacity duration-300" id="drawer-backdrop" onclick="document.getElementById('mobile-drawer').classList.add('-translate-x-full');this.classList.add('opacity-0','pointer-events-none');"></div><aside class="fixed top-0 bottom-0 left-0 w-80 max-w-[85vw] z-50 bg-surface-container-lowest flex flex-col -translate-x-full transition-transform duration-300 ease-out shadow-2xl pt-safe pb-safe" id="mobile-drawer"><div class="p-space-lg flex items-center justify-between bg-surface-container-low"><div class="flex items-center gap-space-sm"><img alt="WABA Ops Logo" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1X9qDejTKwj1rDNdcr4HCJVXXR6pgdyYRhxhSMlEsn67ILOrbwOqvdSUPIly5rzk774k3Pq4Rbe9vbts1OeG0LXklpmGd2SpbuQ3BSKSlSf624UvPp21z_p291om6Qp2DbQEKra8Jiqlc0bsrpIfLhF9WKwPAr-iOC31dpzfdh7HJTd_lLKyoIBm0Hd-369wvXdxUty2hbWdjphwMWtRMeuh29Da8zQ87y3ecL69Yko79YGpuRyPQhYwffP"/><div class="flex flex-col"><span class="font-headline-sm text-headline-sm text-on-surface font-bold">WABA Console</span><span class="font-label-sm text-label-sm text-on-surface-variant">Meta Cloud Platform</span></div></div><button aria-label="Close Drawer" class="w-11 h-11 flex items-center justify-center rounded-xl text-on-surface-variant hover:bg-surface-container" onclick="document.getElementById('mobile-drawer').classList.add('-translate-x-full');document.getElementById('drawer-backdrop').classList.add('opacity-0','pointer-events-none');" type="button"><span class="material-symbols-outlined text-[22px]">close</span></button></div><div class="p-space-md mx-space-md my-space-sm rounded-xl bg-surface-container flex items-center gap-space-sm"><img alt="Profile" class="w-10 h-10 rounded-full object-cover shrink-0" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAmeG0HTwOlIf3xjgEH2_pmMJCktYT5Hg2eI9eW0agbKZNmTqBgbEMn_ao5_jY_UCc50AWoG0aW5hkSZTEYEPwuvD9IZUQDLAb0jpjWjiQoO2WMe2ai9s8dnS4-wMo77YF8D--rEdBh8EGuTvko9bm8LjrC8VdjMjSBTInF8IrDGbz_WOLDE4O0U3_NrjWmSlCgCw5IrWyMb4SoyEKuae-b8Mt2uXEWzaLJEHMM-B9vH65oBE7lPz9xlQ"/><div class="flex flex-col min-w-0"><span class="font-headline-sm text-headline-sm text-on-surface truncate">Elena Rostova</span><span class="font-label-sm text-label-sm text-primary font-bold">Super Admin • Tier 3</span><span class="font-mono-data text-[10px] text-on-surface-variant">erostova@meta-waba.internal</span></div></div><div class="px-space-md py-space-xs"><div class="px-space-sm py-space-xs rounded-lg bg-surface-container-high/60 flex items-center justify-between"><span class="font-label-sm text-label-sm text-on-surface-variant">API Health</span><span class="font-label-sm text-label-sm text-primary font-bold flex items-center gap-1"><span class="w-1.5 h-1.5 rounded-full bg-primary"></span> 99.98% SLA</span></div></div><nav class="flex-1 overflow-y-auto px-space-sm py-space-xs space-y-space-xxs" data-active-classes="bg-primary-container text-on-primary-container font-semibold"><a class="flex items-center justify-between px-space-md py-space-sm rounded-xl text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors min-h-[44px]" data-path="dashboard" href="#"><div class="flex items-center gap-space-md"><span class="material-symbols-outlined text-[20px]">grid_view</span><span class="font-body-md text-body-md">Dashboard</span></div><span class="font-label-sm text-[11px] px-2 py-0.5 rounded-full bg-surface-container text-on-surface-variant font-medium">Live</span></a><a aria-current="page" class="flex items-center justify-between px-space-md py-space-sm rounded-xl transition-colors min-h-[44px] bg-primary-container text-on-primary-container font-semibold" data-path="whatsapp" href="#"><div class="flex items-center gap-space-md"><span class="material-symbols-outlined text-[20px]">phone_in_talk</span><span class="font-body-md text-body-md">WhatsApp</span></div><span class="font-label-sm text-[11px] px-2 py-0.5 rounded-full bg-secondary-container text-on-secondary-container font-medium">Online</span></a><a class="flex items-center justify-between px-space-md py-space-sm rounded-xl text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors min-h-[44px]" data-path="inbox" href="#"><div class="flex items-center gap-space-md"><span class="material-symbols-outlined text-[20px]">chat</span><span class="font-body-md text-body-md">Inbox</span></div><span class="font-label-sm text-[11px] px-2 py-0.5 rounded-full bg-primary text-on-primary font-bold">14</span></a><a class="flex items-center justify-between px-space-md py-space-sm rounded-xl text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors min-h-[44px]" data-path="contacts" href="#"><div class="flex items-center gap-space-md"><span class="material-symbols-outlined text-[20px]">contacts</span><span class="font-body-md text-body-md">Contacts</span></div><span class="font-label-sm text-[11px] px-2 py-0.5 rounded-full bg-surface-container text-on-surface-variant font-medium">2.8k</span></a><a class="flex items-center justify-between px-space-md py-space-sm rounded-xl text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors min-h-[44px]" data-path="documents-pdfs" href="#"><div class="flex items-center gap-space-md"><span class="material-symbols-outlined text-[20px]">folder_data</span><span class="font-body-md text-body-md">Documents / PDFs</span></div><span class="font-label-sm text-[11px] px-2 py-0.5 rounded-full bg-surface-container text-on-surface-variant font-medium">ChromaDB</span></a><a class="flex items-center justify-between px-space-md py-space-sm rounded-xl text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors min-h-[44px]" data-path="message-templates" href="#"><div class="flex items-center gap-space-md"><span class="material-symbols-outlined text-[20px]">mark_chat_read</span><span class="font-body-md text-body-md">Message Templates</span></div><span class="font-label-sm text-[11px] px-2 py-0.5 rounded-full bg-surface-container text-on-surface-variant font-medium">HSM</span></a><a class="flex items-center justify-between px-space-md py-space-sm rounded-xl text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors min-h-[44px]" data-path="users-roles" href="#"><div class="flex items-center gap-space-md"><span class="material-symbols-outlined text-[20px]">shield_person</span><span class="font-body-md text-body-md">Users &amp; Roles</span></div><span class="font-label-sm text-[11px] px-2 py-0.5 rounded-full bg-surface-container text-on-surface-variant font-medium">RBAC</span></a><a class="flex items-center justify-between px-space-md py-space-sm rounded-xl text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors min-h-[44px]" data-path="activity-logs" href="#"><div class="flex items-center gap-space-md"><span class="material-symbols-outlined text-[20px]">receipt_long</span><span class="font-body-md text-body-md">Activity Logs</span></div><span class="font-label-sm text-[11px] px-2 py-0.5 rounded-full bg-surface-container text-on-surface-variant font-medium">Audit</span></a><a class="flex items-center justify-between px-space-md py-space-sm rounded-xl text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors min-h-[44px]" data-path="settings" href="#"><div class="flex items-center gap-space-md"><span class="material-symbols-outlined text-[20px]">settings</span><span class="font-body-md text-body-md">Settings</span></div><span class="font-label-sm text-[11px] px-2 py-0.5 rounded-full bg-surface-container text-on-surface-variant font-medium">Config</span></a></nav><div class="p-space-md bg-surface-container-low"><div class="px-space-md py-space-sm rounded-xl bg-surface text-center"><p class="font-label-sm text-[10px] text-on-surface-variant font-medium leading-relaxed">Internal Business Portal — Meta Cloud API v20.0 — PostgreSQL &amp; ChromaDB Integrated</p></div></div></aside><main class="flex-1 flex flex-col relative w-full pt-20 pb-20 bg-surface"><div class="flex flex-col w-full px-space-md py-space-md gap-space-lg">
+<!-- Header Context Badge & Meta Verification Banner -->
+<section class="flex flex-col gap-space-xs">
+<div class="flex items-center justify-between">
+<span class="inline-flex items-center gap-1.5 px-space-sm py-0.5 rounded-full bg-secondary-container text-on-secondary-container font-label-sm text-label-sm shadow-sm">
+<span class="material-symbols-outlined text-[14px]">verified</span>
+        Meta for Developers Cloud API Integration
+      </span>
+<span class="font-mono-data text-label-sm text-on-surface-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px] text-primary">security</span>
+        v20.0 Core
+      </span>
+</div>
+<!-- Compliance / Protocol Notice Banner -->
+<div class="p-space-md rounded-xl bg-surface-container flex items-start gap-space-sm shadow-sm">
+<div class="w-8 h-8 rounded-full bg-surface-container-high text-primary flex items-center justify-center shrink-0 mt-0.5">
+<span class="material-symbols-outlined text-[18px]">policy</span>
+</div>
+<div class="flex flex-col gap-0.5 min-w-0">
+<span class="font-headline-sm text-headline-sm text-on-surface leading-snug">Enterprise Protocol Standard</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
+          Connect your business account using official Meta credentials. QR-code scanning and WhatsApp Web pairing are explicitly not supported for enterprise compliance.
+        </p>
+</div>
+</div>
+</section>
+<!-- Live Connection Status Card -->
+<section class="flex flex-col rounded-xl bg-surface-container-lowest shadow-md overflow-hidden">
+<!-- Card Header -->
+<div class="px-space-md py-space-sm bg-surface-container-low flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[20px]">hub</span>
+<span class="font-headline-sm text-headline-sm text-on-surface">Live Connection Profile</span>
+</div>
+<div class="flex items-center gap-1.5 px-space-sm py-0.5 rounded-full bg-on-tertiary-container text-tertiary shadow-sm">
+<span class="relative flex h-2 w-2">
+<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-tertiary-fixed-dim opacity-75"></span>
+<span class="relative inline-flex rounded-full h-2 w-2 bg-tertiary"></span>
+</span>
+<span class="font-label-sm text-label-sm font-bold tracking-wide">Connected</span>
+</div>
+</div>
+<!-- Verified Identity Hero Row -->
+<div class="p-space-md flex flex-col gap-space-md">
+<div class="flex items-center gap-space-md p-space-sm rounded-lg bg-surface-container-low">
+<div class="relative w-12 h-12 rounded-xl bg-primary flex items-center justify-center text-on-primary shrink-0 shadow-sm">
+<span class="material-symbols-outlined text-[28px]">phone_iphone</span>
+<span class="absolute -bottom-1 -right-1 w-4 h-4 rounded-full bg-secondary-container flex items-center justify-center text-on-secondary-container">
+<span class="material-symbols-outlined text-[11px] font-bold">check</span>
+</span>
+</div>
+<div class="flex flex-col min-w-0">
+<div class="flex items-center gap-1 min-w-0">
+<span class="font-headline-md text-headline-md text-on-surface truncate">Acme Global Ops</span>
+<span class="material-symbols-outlined text-primary text-[16px] shrink-0" title="Meta Official Business Account">verified</span>
+</div>
+<span class="font-mono-data text-body-md text-on-surface-variant font-semibold">+1 (555) 019-2834</span>
+<span class="font-label-sm text-[11px] text-primary">Official WhatsApp Business Account</span>
+</div>
+</div>
+<!-- Identity Metadata Key-Value List -->
+<div class="grid grid-cols-1 gap-2">
+<!-- Phone Number ID -->
+<div class="flex items-center justify-between p-space-sm rounded-lg bg-surface-container">
+<div class="flex flex-col">
+<span class="font-label-sm text-[11px] text-on-surface-variant uppercase tracking-wider">Phone Number ID</span>
+<span class="font-mono-data text-body-sm text-on-surface font-semibold">109283746592019</span>
+</div>
+<button class="material-symbols-outlined text-on-surface-variant hover:text-primary text-[18px] p-1.5 rounded-lg bg-surface-container-high transition-colors" onclick="navigator.clipboard?.writeText('109283746592019'); this.textContent='done'; setTimeout(()=&gt;this.textContent='content_copy', 1500);" title="Copy ID" type="button">content_copy</button>
+</div>
+<!-- WABA ID -->
+<div class="flex items-center justify-between p-space-sm rounded-lg bg-surface-container">
+<div class="flex flex-col">
+<span class="font-label-sm text-[11px] text-on-surface-variant uppercase tracking-wider">WABA Account ID</span>
+<span class="font-mono-data text-body-sm text-on-surface font-semibold">392847501928374</span>
+</div>
+<button class="material-symbols-outlined text-on-surface-variant hover:text-primary text-[18px] p-1.5 rounded-lg bg-surface-container-high transition-colors" onclick="navigator.clipboard?.writeText('392847501928374'); this.textContent='done'; setTimeout(()=&gt;this.textContent='content_copy', 1500);" title="Copy ID" type="button">content_copy</button>
+</div>
+<!-- Graph API Version -->
+<div class="flex items-center justify-between p-space-sm rounded-lg bg-surface-container">
+<div class="flex flex-col">
+<span class="font-label-sm text-[11px] text-on-surface-variant uppercase tracking-wider">Meta API Engine</span>
+<span class="font-mono-data text-body-sm text-on-surface font-semibold">v20.0 Graph API</span>
+</div>
+<span class="font-label-sm text-label-sm px-2 py-0.5 rounded-full bg-surface-container-highest text-on-surface font-semibold">LTS Tier</span>
+</div>
+<!-- Webhook Status Accordion / Strip -->
+<div class="flex flex-col gap-1.5 p-space-sm rounded-lg bg-surface-container">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-[11px] text-on-surface-variant uppercase tracking-wider">Meta Webhook Ingress</span>
+<span class="flex items-center gap-1 font-mono-data text-label-sm text-primary font-bold">
+<span class="w-1.5 h-1.5 rounded-full bg-primary"></span>
+              200 OK
+            </span>
+</div>
+<div class="p-space-xs rounded bg-surface-container-lowest font-mono-data text-[11px] text-on-surface-variant break-all select-all">
+            https://api.ops.internal/v1/webhooks/whatsapp
+          </div>
+<div class="flex items-center justify-between pt-0.5">
+<span class="font-body-sm text-[11px] text-on-surface-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px] text-secondary">sync_alt</span>
+              Processed Events
+            </span>
+<span class="font-mono-data text-label-sm font-bold text-on-surface">12,400 events</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Interactive Credential Configuration Form -->
+<section class="flex flex-col rounded-xl bg-surface-container-lowest shadow-md overflow-hidden">
+<div class="px-space-md py-space-sm bg-surface-container-low flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[20px]">key_vertical</span>
+<span class="font-headline-sm text-headline-sm text-on-surface">Credential Configuration</span>
+</div>
+<span class="font-label-sm text-label-sm px-2 py-0.5 rounded-full bg-secondary-container text-on-secondary-container font-semibold">Cloud API v20</span>
+</div>
+<form class="p-space-md flex flex-col gap-space-md" id="waba-cred-form" onsubmit="event.preventDefault(); triggerHandshakeTest();">
+<!-- Field: Business Phone Number -->
+<div class="flex flex-col gap-1">
+<label class="font-headline-sm text-headline-sm text-on-surface flex items-center justify-between" for="waba-phone">
+<span>WhatsApp Business Phone</span>
+<span class="font-label-sm text-label-sm text-primary font-medium">E.164 Format</span>
+</label>
+<div class="relative flex items-center">
+<span class="absolute left-3 text-on-surface-variant material-symbols-outlined text-[18px]">call</span>
+<input class="w-full h-11 pl-10 pr-3 rounded-lg bg-surface-container-low text-on-surface font-mono-data text-body-md placeholder:text-outline focus:outline-none focus:bg-surface-container-high transition-colors" id="waba-phone" name="phone" placeholder="+1 (555) 000-0000" required="" type="tel" value="+1 (555) 019-2834"/>
+</div>
+</div>
+<!-- Field: Phone Number ID -->
+<div class="flex flex-col gap-1">
+<label class="font-headline-sm text-headline-sm text-on-surface" for="waba-phone-id">
+          Phone Number ID
+        </label>
+<div class="relative flex items-center">
+<span class="absolute left-3 text-on-surface-variant material-symbols-outlined text-[18px]">badge</span>
+<input class="w-full h-11 pl-10 pr-3 rounded-lg bg-surface-container-low text-on-surface font-mono-data text-body-md placeholder:text-outline focus:outline-none focus:bg-surface-container-high transition-colors" id="waba-phone-id" name="phone_id" placeholder="e.g. 109283746592019" required="" type="text" value="109283746592019"/>
+</div>
+</div>
+<!-- Field: WABA Account ID -->
+<div class="flex flex-col gap-1">
+<label class="font-headline-sm text-headline-sm text-on-surface" for="waba-account-id">
+          WhatsApp Business Account ID (WABA ID)
+        </label>
+<div class="relative flex items-center">
+<span class="absolute left-3 text-on-surface-variant material-symbols-outlined text-[18px]">domain</span>
+<input class="w-full h-11 pl-10 pr-3 rounded-lg bg-surface-container-low text-on-surface font-mono-data text-body-md placeholder:text-outline focus:outline-none focus:bg-surface-container-high transition-colors" id="waba-account-id" name="waba_id" placeholder="e.g. 392847501928374" required="" type="text" value="392847501928374"/>
+</div>
+</div>
+<!-- Field: Meta System User Token (Sensitive Vault) -->
+<div class="flex flex-col gap-1">
+<label class="font-headline-sm text-headline-sm text-on-surface flex items-center justify-between" for="waba-token">
+<span>Permanent System User Token</span>
+<span class="font-label-sm text-[11px] text-tertiary font-bold flex items-center gap-1">
+<span class="material-symbols-outlined text-[13px]">lock</span> Vault Sealed
+          </span>
+</label>
+<div class="relative flex items-center">
+<span class="absolute left-3 text-on-surface-variant material-symbols-outlined text-[18px]">password</span>
+<input class="w-full h-11 pl-10 pr-12 rounded-lg bg-surface-container-low text-on-surface font-mono-data text-body-md placeholder:text-outline focus:outline-none focus:bg-surface-container-high transition-colors" id="waba-token" name="access_token" required="" type="password" value="EAAGXk1930fl29dKLLD9381023jkasldf91823ljkdas9"/>
+<button aria-label="Toggle token display" class="absolute right-2 w-8 h-8 rounded-md flex items-center justify-center text-on-surface-variant hover:text-on-surface transition-colors" id="token-toggle-btn" onclick="toggleTokenVisibility()" type="button">
+<span class="material-symbols-outlined text-[20px]" id="token-eye-icon">visibility</span>
+</button>
+</div>
+<p class="font-body-sm text-[11px] text-on-surface-variant mt-0.5 leading-normal flex items-start gap-1">
+<span class="material-symbols-outlined text-primary text-[14px] shrink-0 mt-0.5">verified_user</span>
+<span>Tokens are securely stored in server-side vault. Never exposed in browser response.</span>
+</p>
+</div>
+<!-- Test Status Toast Indicator (Interactive placeholder) -->
+<div class="hidden p-space-sm rounded-lg bg-surface-container flex items-center gap-2" id="test-handshake-status">
+<span class="material-symbols-outlined text-primary text-[18px]" id="handshake-icon">check_circle</span>
+<span class="font-label-sm text-label-sm text-on-surface" id="handshake-text">Meta Graph Handshake verified (Latency: 42ms)</span>
+</div>
+<!-- Action Buttons -->
+<div class="flex flex-col gap-2 pt-space-xs">
+<button class="w-full h-11 px-space-md rounded-xl bg-surface-container-high hover:bg-surface-container text-on-surface font-headline-sm text-headline-sm flex items-center justify-center gap-2 shadow-sm transition-all active:scale-[0.99]" id="btn-test-handshake" onclick="triggerHandshakeTest()" type="button">
+<span class="material-symbols-outlined text-[18px] text-primary" id="test-spinner">network_check</span>
+<span id="test-btn-label">Validate &amp; Test Meta Handshake</span>
+</button>
+<button class="w-full h-11 px-space-md rounded-xl bg-primary text-on-primary hover:bg-primary-container font-headline-sm text-headline-sm flex items-center justify-center gap-2 shadow-sm transition-all active:scale-[0.99]" type="submit">
+<span class="material-symbols-outlined text-[18px]">save</span>
+<span>Save Configuration</span>
+</button>
+</div>
+</form>
+</section>
+<!-- Disconnect Workflow Section -->
+<section class="flex flex-col rounded-xl bg-error-container/25 shadow-sm p-space-md gap-space-sm">
+<div class="flex items-center gap-2">
+<div class="w-8 h-8 rounded-lg bg-error-container text-error flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-[20px]">link_off</span>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="font-headline-sm text-headline-sm text-on-surface">Disconnect WhatsApp Integration</span>
+<span class="font-label-sm text-[11px] text-error font-semibold">Irreversible Session Interruption</span>
+</div>
+</div>
+<div class="p-space-sm rounded-lg bg-surface-container-lowest">
+<p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
+        Disconnecting will stop incoming webhooks and message transmission immediately. It will <strong class="text-on-surface font-semibold">NOT</strong> delete your Meta WhatsApp Business account or historical campaign records.
+      </p>
+</div>
+<button class="w-full h-11 mt-1 rounded-xl bg-surface-container-lowest text-error hover:bg-error-container/40 font-headline-sm text-headline-sm flex items-center justify-center gap-2 shadow-sm transition-colors active:scale-[0.99]" onclick="openDisconnectModal()" type="button">
+<span class="material-symbols-outlined text-[18px]">power_settings_new</span>
+<span>Disconnect WhatsApp</span>
+</button>
+</section>
+<!-- Security Footer Badge strip -->
+<footer class="p-space-sm rounded-xl bg-surface-container text-center flex flex-col items-center gap-1 shadow-sm">
+<div class="flex items-center gap-1.5 text-primary">
+<span class="material-symbols-outlined text-[16px]">lock_clock</span>
+<span class="font-label-sm text-label-sm font-bold uppercase tracking-wider">Zero Client Secret Exposure</span>
+</div>
+<p class="font-mono-data text-[11px] text-on-surface-variant">
+      PostgreSQL Server-side Encryption (AES-GCM-256) • RBAC Protected
+    </p>
+</footer>
+<!-- Modal Backdrop & Disconnect Confirmation Dialog -->
+<div aria-modal="true" class="fixed inset-0 z-50 bg-inverse-surface/60 backdrop-blur-sm flex items-end sm:items-center justify-center p-space-md opacity-0 pointer-events-none transition-opacity duration-200" id="disconnect-modal" role="dialog">
+<div class="w-full max-w-sm rounded-2xl bg-surface-container-lowest p-space-lg flex flex-col gap-space-md shadow-2xl transition-transform duration-200 translate-y-4">
+<div class="flex items-center gap-3">
+<div class="w-12 h-12 rounded-full bg-error-container text-error flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-[28px]">warning</span>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="font-headline-lg text-headline-lg text-on-surface">Confirm Disconnect</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">+1 (555) 019-2834</span>
+</div>
+</div>
+<div class="p-space-sm rounded-xl bg-surface-container-low text-on-surface-variant font-body-sm text-body-sm leading-relaxed">
+        This action revokes webhook consumption and ceases live routing. To restore messaging operations, an authorized admin must re-authenticate with Meta Cloud credentials.
+      </div>
+<div class="flex flex-col gap-2">
+<button class="w-full h-11 rounded-xl bg-error text-on-error font-headline-sm text-headline-sm flex items-center justify-center gap-2 shadow-sm transition-all" onclick="executeDisconnect()" type="button">
+<span class="material-symbols-outlined text-[18px]">link_off</span>
+<span>Confirm &amp; Terminate Session</span>
+</button>
+<button class="w-full h-11 rounded-xl bg-surface-container text-on-surface font-headline-sm text-headline-sm flex items-center justify-center transition-colors" onclick="closeDisconnectModal()" type="button">
+          Cancel
+        </button>
+</div>
+</div>
+</div>
+</div>
+<script>
+  function toggleTokenVisibility() {
+    const input = document.getElementById('waba-token');
+    const icon = document.getElementById('token-eye-icon');
+    if (!input || !icon) return;
+    if (input.type === 'password') {
+      input.type = 'text';
+      icon.textContent = 'visibility_off';
+    } else {
+      input.type = 'password';
+      icon.textContent = 'visibility';
+    }
+  }
+
+  function triggerHandshakeTest() {
+    const btn = document.getElementById('btn-test-handshake');
+    const label = document.getElementById('test-btn-label');
+    const spinner = document.getElementById('test-spinner');
+    const statusBox = document.getElementById('test-handshake-status');
+    const statusText = document.getElementById('handshake-text');
+    const statusIcon = document.getElementById('handshake-icon');
+
+    if (!btn || !label || !spinner) return;
+
+    btn.disabled = true;
+    label.textContent = 'Testing Meta Graph Handshake...';
+    spinner.textContent = 'autorenew';
+    spinner.classList.add('animate-spin');
+
+    if (statusBox) statusBox.classList.add('hidden');
+
+    setTimeout(() => {
+      btn.disabled = false;
+      label.textContent = 'Validate & Test Meta Handshake';
+      spinner.textContent = 'network_check';
+      spinner.classList.remove('animate-spin');
+
+      if (statusBox && statusText && statusIcon) {
+        statusBox.classList.remove('hidden');
+        statusIcon.textContent = 'check_circle';
+        statusIcon.className = 'material-symbols-outlined text-primary text-[18px]';
+        statusText.textContent = 'Meta Graph API Handshake Successful (Latency: 38ms, Tier: v20.0 Verified)';
+      }
+    }, 1200);
+  }
+
+  function openDisconnectModal() {
+    const modal = document.getElementById('disconnect-modal');
+    if (modal) {
+      modal.classList.remove('opacity-0', 'pointer-events-none');
+      const dialog = modal.querySelector('div');
+      if (dialog) dialog.classList.remove('translate-y-4');
+    }
+  }
+
+  function closeDisconnectModal() {
+    const modal = document.getElementById('disconnect-modal');
+    if (modal) {
+      modal.classList.add('opacity-0', 'pointer-events-none');
+      const dialog = modal.querySelector('div');
+      if (dialog) dialog.classList.add('translate-y-4');
+    }
+  }
+
+  function executeDisconnect() {
+    closeDisconnectModal();
+    const handshakeBox = document.getElementById('test-handshake-status');
+    const statusText = document.getElementById('handshake-text');
+    const statusIcon = document.getElementById('handshake-icon');
+    if (handshakeBox && statusText && statusIcon) {
+      handshakeBox.classList.remove('hidden');
+      statusIcon.textContent = 'warning';
+      statusIcon.className = 'material-symbols-outlined text-error text-[18px]';
+      statusText.textContent = 'Webhook session deactivated. Please provide credentials to reconnect.';
+    }
+  }
+</script></main><nav class="fixed bottom-0 inset-x-0 z-50 pb-safe bg-surface/90 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)]" data-active-classes="text-primary font-bold"><div class="flex justify-around items-center h-20 px-space-xs"><a class="flex flex-col items-center justify-center gap-1 min-w-[56px] h-14 text-on-surface-variant hover:text-on-surface transition-colors" data-path="dashboard" href="#"><span class="material-symbols-outlined text-[22px]">grid_view</span><span class="font-label-sm text-[11px]">Dashboard</span></a><a class="flex flex-col items-center justify-center gap-1 min-w-[56px] h-14 text-on-surface-variant hover:text-on-surface transition-colors relative" data-path="inbox" href="#"><span class="material-symbols-outlined text-[22px]">chat</span><span class="font-label-sm text-[11px]">Inbox</span><span class="absolute top-1.5 right-2 w-2 h-2 rounded-full bg-primary"></span></a><a class="flex flex-col items-center justify-center gap-1 min-w-[56px] h-14 text-on-surface-variant hover:text-on-surface transition-colors" data-path="documents-pdfs" href="#"><span class="material-symbols-outlined text-[22px]">folder_data</span><span class="font-label-sm text-[11px]">Documents</span></a><a aria-current="page" class="flex flex-col items-center justify-center gap-1 min-w-[56px] h-14 transition-colors text-primary font-bold" data-path="whatsapp" href="#"><span class="material-symbols-outlined text-[22px]">phone_in_talk</span><span class="font-label-sm text-[11px]">WhatsApp</span></a><button class="flex flex-col items-center justify-center gap-1 min-w-[56px] h-14 text-on-surface-variant hover:text-on-surface transition-colors" onclick="document.getElementById('mobile-drawer').classList.remove('-translate-x-full');document.getElementById('drawer-backdrop').classList.remove('opacity-0','pointer-events-none');" type="button"><span class="material-symbols-outlined text-[22px]">apps</span><span class="font-label-sm text-[11px]">Menu</span></button></div></nav></body></html>
